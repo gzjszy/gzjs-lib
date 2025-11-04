@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>贵州建设职业技术学院图书馆活动邀请函</title>
+  <!-- 引入Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 引入Font Awesome图标 -->
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- 引入Google字体 -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- 自定义Tailwind配置 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF', // 主色调：学院蓝
+            secondary: '#FF7D00', // 辅助色：活力橙
+            tertiary: '#36B37E', // 点缀色：生态绿
+            dark: '#1E293B',
+            light: '#F8FAFC'
+          },
+          fontFamily: {
+            sans: ['Noto Sans SC', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <!-- 自定义工具类 -->
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .text-shadow-lg {
+        text-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      }
+      .bg-gradient-primary {
+        background: linear-gradient(135deg, #165DFF 0%, #0F48C9 100%);
+      }
+      .transition-transform-opacity {
+        transition-property: transform, opacity;
+      }
+    }
+  </style>
+  
+  <style>
+    /* 全局样式 */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      background-color: #F8FAFC;
+    }
+    
+    /* 动画效果 */
+    .fade-in {
+      animation: fadeIn 0.8s ease-in-out;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .float {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    /* 倒计时样式 */
+    .countdown-item {
+      position: relative;
+    }
+    
+    .countdown-item:not(:last-child)::after {
+      content: ":";
+      position: absolute;
+      right: -12px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.5rem;
+      font-weight: 300;
+    }
+    
+    /* 响应式调整 */
+    @media (max-width: 768px) {
+      .countdown-item:not(:last-child)::after {
+        right: -8px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body class="font-sans text-dark">
+  <!-- 顶部导航 -->
+  <nav id="navbar" class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <i class="fa fa-book text-primary text-2xl"></i>
+        <span class="text-lg font-semibold text-primary hidden sm:inline-block">贵州建设职业技术学院图书馆</span>
+      </div>
+      <div class="hidden md:flex space-x-8">
+        <a href="#invitation" class="text-dark/80 hover:text-primary transition-colors">邀请函</a>
+        <a href="#event" class="text-dark/80 hover:text-primary transition-colors">活动详情</a>
+        <a href="#speaker" class="text-dark/80 hover:text-primary transition-colors">嘉宾介绍</a>
+        <a href="#register" class="text-dark/80 hover:text-primary transition-colors">立即报名</a>
+      </div>
+      <button id="menuBtn" class="md:hidden text-dark text-xl">
+        <i class="fa fa-bars"></i>
+      </button>
+    </div>
+    <!-- 移动端菜单 -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white shadow-md absolute w-full">
+      <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+        <a href="#invitation" class="text-dark/80 hover:text-primary transition-colors py-2 border-b border-gray-100">邀请函</a>
+        <a href="#event" class="text-dark/80 hover:text-primary transition-colors py-2 border-b border-gray-100">活动详情</a>
+        <a href="#speaker" class="text-dark/80 hover:text-primary transition-colors py-2 border-b border-gray-100">嘉宾介绍</a>
+        <a href="#register" class="text-dark/80 hover:text-primary transition-colors py-2">立即报名</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 英雄区域 -->
+  <header class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-primary text-white overflow-hidden relative">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-0 left-0 w-full h-full bg-[url('https://picsum.photos/id/24/1920/1080')] bg-cover bg-center"></div>
+    </div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-3xl mx-auto text-center fade-in">
+        <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight text-shadow-lg mb-4">
+          书香建院 · 智启未来
+        </h1>
+        <p class="text-[clamp(1.1rem,2vw,1.3rem)] text-white/90 mb-8 text-shadow">
+          贵州建设职业技术学院图书馆年度阅读推广系列活动
+        </p>
+        
+        <!-- 倒计时 -->
+        <div class="flex justify-center space-x-4 md:space-x-8 mb-10">
+          <div class="countdown-item bg-white/10 backdrop-blur-sm rounded-lg p-3 md:p-4 w-16 md:w-20 text-center">
+            <div id="days" class="text-xl md:text-2xl font-semibold">00</div>
+            <div class="text-xs md:text-sm opacity-80">天</div>
+          </div>
+          <div class="countdown-item bg-white/10 backdrop-blur-sm rounded-lg p-3 md:p-4 w-16 md:w-20 text-center">
+            <div id="hours" class="text-xl md:text-2xl font-semibold">00</div>
+            <div class="text-xs md:text-sm opacity-80">时</div>
+          </div>
+          <div class="countdown-item bg-white/10 backdrop-blur-sm rounded-lg p-3 md:p-4 w-16 md:w-20 text-center">
+            <div id="minutes" class="text-xl md:text-2xl font-semibold">00</div>
+            <div class="text-xs md:text-sm opacity-80">分</div>
+          </div>
+          <div class="countdown-item bg-white/10 backdrop-blur-sm rounded-lg p-3 md:p-4 w-16 md:w-20 text-center">
+            <div id="seconds" class="text-xl md:text-2xl font-semibold">00</div>
+            <div class="text-xs md:text-sm opacity-80">秒</div>
+          </div>
+        </div>
+        
+        <a href="#register" class="inline-block bg-secondary hover:bg-secondary/90 text-white font-medium py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+          立即报名参加
+        </a>
+      </div>
+    </div>
+    
+    <!-- 装饰元素 -->
+    <div class="absolute -bottom-1 left-0 w-full h-20 bg-gradient-to-t from-light to-transparent"></div>
+    <div class="absolute top-1/4 right-10 w-20 h-20 md:w-32 md:h-32 bg-white/10 rounded-full blur-xl"></div>
+    <div class="absolute bottom-1/3 left-10 w-16 h-16 md:w-24 md:h-24 bg-secondary/20 rounded-full blur-xl"></div>
+  </header>
+
+  <main>
+    <!-- 邀请函正文 -->
+    <section id="invitation" class="py-16 md:py-24 bg-light">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-12 fade-in">
+            <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-dark mb-4">诚挚邀请</h2>
+            <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+            <p class="text-dark/70 max-w-2xl mx-auto">
+              尊敬的老师、亲爱的同学们，我们诚挚邀请您参加本次图书馆年度阅读推广系列活动
+            </p>
+          </div>
+          
+          <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 fade-in" style="animation-delay: 0.2s">
+            <div class="prose prose-lg max-w-none text-dark/80">
+              <p class="mb-6 text-lg">
+                亲爱的老师、同学们：
+              </p>
+              <p class="mb-6">
+                书是人类进步的阶梯，阅读是一种美好的生活方式。为进一步营造我院浓厚的读书氛围，激发广大师生的阅读兴趣，提升人文素养，贵州建设职业技术学院图书馆特举办"书香建院 · 智启未来"年度阅读推广系列活动。
+              </p>
+              <p class="mb-6">
+                本次活动将涵盖专家讲座、读书分享会、数字资源推广、征文比赛、图书漂流等多个板块，旨在为全院师生搭建一个交流思想、共享知识、提升自我的平台。我们诚挚邀请您拨冗出席，与我们一同沉浸书海，启迪智慧，共赴这场书香之约。
+              </p>
+              <p class="mb-6">
+                在这里，您将有机会与知名学者面对面交流，与志同道合的书友分享阅读心得，发现优质数字资源，参与丰富多彩的互动活动，赢取精美礼品。
+              </p>
+              <p class="font-medium text-primary">
+                期待您的光临，让我们一起在阅读中成长，在交流中进步，共同建设书香建院！
+              </p>
+              
+              <div class="mt-12 text-right">
+                <p class="font-medium">贵州建设职业技术学院图书馆</p>
+                <p class="text-dark/60">2024年11月</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 活动详情 -->
+    <section id="event" class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-dark mb-4">活动详情</h2>
+          <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+          <p class="text-dark/70 max-w-2xl mx-auto">
+            丰富多样的活动内容，为您带来全方位的阅读体验
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- 活动1 -->
+          <div class="bg-light rounded-xl shadow-md hover:shadow-xl p-6 transition-all duration-300 transform hover:-translate-y-1 fade-in" style="animation-delay: 0.1s">
+            <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+              <i class="fa fa-microphone text-primary text-xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">专家讲座</h3>
+            <p class="text-dark/70 mb-4">邀请知名作家、学者开展专题讲座，分享阅读心得与学术见解。</p>
+            <div class="flex items-center text-sm text-dark/60 mb-2">
+              <i class="fa fa-calendar-o mr-2"></i>
+              <span>11月15日 14:30-16:30</span>
+            </div>
+            <div class="flex items-center text-sm text-dark/60">
+              <i class="fa fa-map-marker mr-2"></i>
+              <span>图书馆学术报告厅</span>
+            </div>
+          </div>
+          
+          <!-- 活动2 -->
+          <div class="bg-light rounded-xl shadow-md hover:shadow-xl p-6 transition-all duration-300 transform hover:-translate-y-1 fade-in" style="animation-delay: 0.2s">
+            <div class="w-14 h-14 bg-secondary/10 rounded-full flex items-center justify-center mb-6">
+              <i class="fa fa-comments text-secondary text-xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">读书分享会</h3>
+            <p class="text-dark/70 mb-4">师生共读经典好书，分享阅读感悟，碰撞思想火花。</p>
+            <div class="flex items-center text-sm text-dark/60 mb-2">
+              <i class="fa fa-calendar-o mr-2"></i>
+              <span>11月20日 19:00-21:00</span>
+            </div>
+            <div class="flex items-center text-sm text-dark/60">
+              <i class="fa fa-map-marker mr-2"></i>
+              <span>图书馆阅览区</span>
+            </div>
+          </div>
+          
+          <!-- 活动3 -->
+          <div class="bg-light rounded-xl shadow-md hover:shadow-xl p-6 transition-all duration-300 transform hover:-translate-y-1 fade-in" style="animation-delay: 0.3s">
+            <div class="w-14 h-14 bg-tertiary/10 rounded-full flex items-center justify-center mb-6">
+              <i class="fa fa-laptop text-tertiary text-xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">数字资源推广</h3>
+            <p class="text-dark/70 mb-4">介绍图书馆优质数字资源，教授检索技巧，提升信息获取能力。</p>
+            <div class="flex items-center text-sm text-dark/60 mb-2">
+              <i class="fa fa-calendar-o mr-2"></i>
+              <span>11月22日 15:00-16:30</span>
+            </div>
+            <div class="flex items-center text-sm text-dark/60">
+              <i class="fa fa-map-marker mr-2"></i>
+              <span>图书馆电子阅览室</span>
+            </div>
+          </div>
+          
+          <!-- 活动4 -->
+          <div class="bg-light rounded-xl shadow-md hover:shadow-xl p-6 transition-all duration-300 transform hover:-translate-y-1 fade-in" style="animation-delay: 0.4s">
+            <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+              <i class="fa fa-pencil text-primary text-xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">征文比赛</h3>
+            <p class="text-dark/70 mb-4">围绕指定主题开展征文活动，优秀作品将获得表彰与奖励。</p>
+            <div class="flex items-center text-sm text-dark/60 mb-2">
+              <i class="fa fa-calendar-o mr-2"></i>
+              <span>11月10日-12月5日</span>
+            </div>
+            <div class="flex items-center text-sm text-dark/60">
+              <i class="fa fa-map-marker mr-2"></i>
+              <span>线上投稿</span>
+            </div>
+          </div>
+          
+          <!-- 活动5 -->
+          <div class="bg-light rounded-xl shadow-md hover:shadow-xl p-6 transition-all duration-300 transform hover:-translate-y-1 fade-in" style="animation-delay: 0.5s">
+            <div class="w-14 h-14 bg-secondary/10 rounded-full flex items-center justify-center mb-6">
+              <i class="fa fa-exchange text-secondary text-xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">图书漂流</h3>
+            <p class="text-dark/70 mb-4">分享闲置书籍，传递知识与温暖，让好书流动起来。</p>
+            <div class="flex items-center text-sm text-dark/60 mb-2">
+              <i class="fa fa-calendar-o mr-2"></i>
+              <span>11月15日-11月30日</span>
+            </div>
+            <div class="flex items-center text-sm text-dark/60">
+              <i class="fa fa-map-marker mr-2"></i>
+              <span>图书馆大厅漂流角</span>
+            </div>
+          </div>
+          
+          <!-- 活动6 -->
+          <div class="bg-light rounded-xl shadow-md hover:shadow-xl p-6 transition-all duration-300 transform hover:-translate-y-1 fade-in" style="animation-delay: 0.6s">
+            <div class="w-14 h-14 bg-tertiary/10 rounded-full flex items-center justify-center mb-6">
+              <i class="fa fa-search text-tertiary text-xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">图书推荐会</h3>
+            <p class="text-dark/70 mb-4">图书馆员精选优质图书，为不同专业学生推荐专业与人文读物。</p>
+            <div class="flex items-center text-sm text-dark/60 mb-2">
+              <i class="fa fa-calendar-o mr-2"></i>
+              <span>11月25日 16:00-17:30</span>
+            </div>
+            <div class="flex items-center text-sm text-dark/60">
+              <i class="fa fa-map-marker mr-2"></i>
+              <span>图书馆综合阅览区</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 活动日程表 -->
+        <div class="mt-16 bg-light rounded-xl shadow-md p-6 md:p-8 fade-in" style="animation-delay: 0.7s">
+          <h3 class="text-xl font-semibold mb-6 text-center">活动日程总表</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full min-w-[600px] text-left">
+              <thead>
+                <tr class="border-b-2 border-primary/20">
+                  <th class="py-3 px-4 font-semibold">活动名称</th>
+                  <th class="py-3 px-4 font-semibold">日期时间</th>
+                  <th class="py-3 px-4 font-semibold">地点</th>
+                  <th class="py-3 px-4 font-semibold">参与方式</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-gray-100 hover:bg-white/50 transition-colors">
+                  <td class="py-3 px-4">专家讲座</td>
+                  <td class="py-3 px-4">11月15日 14:30-16:30</td>
+                  <td class="py-3 px-4">图书馆学术报告厅</td>
+                  <td class="py-3 px-4">提前报名</td>
+                </tr>
+                <tr class="border-b border-gray-100 hover:bg-white/50 transition-colors">
+                  <td class="py-3 px-4">读书分享会</td>
+                  <td class="py-3 px-4">11月20日 19:00-21:00</td>
+                  <td class="py-3 px-4">图书馆阅览区</td>
+                  <td class="py-3 px-4">自由参与</td>
+                </tr>
+                <tr class="border-b border-gray-100 hover:bg-white/50 transition-colors">
+                  <td class="py-3 px-4">数字资源推广</td>
+                  <td class="py-3 px-4">11月22日 15:00-16:30</td>
+                  <td class="py-3 px-4">图书馆电子阅览室</td>
+                  <td class="py-3 px-4">提前报名</td>
+                </tr>
+                <tr class="border-b border-gray-100 hover:bg-white/50 transition-colors">
+                  <td class="py-3 px-4">征文比赛</td>
+                  <td class="py-3 px-4">11月10日-12月5日</td>
+                  <td class="py-3 px-4">线上投稿</td>
+                  <td class="py-3 px-4">提交作品</td>
+                </tr>
+                <tr class="border-b border-gray-100 hover:bg-white/50 transition-colors">
+                  <td class="py-3 px-4">图书漂流</td>
+                  <td class="py-3 px-4">11月15日-11月30日</td>
+                  <td class="py-3 px-4">图书馆大厅漂流角</td>
+                  <td class="py-3 px-4">自由参与</td>
+                </tr>
+                <tr class="hover:bg-white/50 transition-colors">
+                  <td class="py-3 px-4">图书推荐会</td>
+                  <td class="py-3 px-4">11月25日 16:00-17:30</td>
+                  <td class="py-3 px-4">图书馆综合阅览区</td>
+                  <td class="py-3 px-4">自由参与</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 嘉宾介绍 -->
+    <section id="speaker" class="py-16 md:py-24 bg-light">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-dark mb-4">特邀嘉宾</h2>
+          <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+          <p class="text-dark/70 max-w-2xl mx-auto">
+            行业专家与知名学者，与您共探知识的海洋
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- 嘉宾1 -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 fade-in" style="animation-delay: 0.1s">
+            <div class="h-64 overflow-hidden">
+              <img src="https://picsum.photos/id/1005/600/400" alt="张明教授" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-1">张明 教授</h3>
+              <p class="text-primary mb-3">贵州大学文学院 博士生导师</p>
+              <p class="text-dark/70 mb-4">
+                著名文学评论家，长期从事现当代文学研究，出版专著5部，发表学术论文80余篇，曾获多项省级以上科研奖励。
+              </p>
+              <div class="flex space-x-3">
+                <a href="#" class="text-dark/60 hover:text-primary transition-colors">
+                  <i class="fa fa-weibo text-lg"></i>
+                </a>
+                <a href="#" class="text-dark/60 hover:text-primary transition-colors">
+                  <i class="fa fa-wechat text-lg"></i>
+                </a>
+                <a href="#" class="text-dark/60 hover:text-primary transition-colors">
+                  <i class="fa fa-envelope text-lg"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 嘉宾2 -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 fade-in" style="animation-delay: 0.2s">
+            <div class="h-64 overflow-hidden">
+              <img src="https://picsum.photos/id/1000/600/400" alt="李华 博士" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-1">李华 博士</h3>
+              <p class="text-primary mb-3">知名作家 / 文化学者</p>
+              <p class="text-dark/70 mb-4">
+                畅销书作家，代表作《城市之光》《阅读的力量》等，作品被翻译成多种语言在海外出版，致力于推广全民阅读。
+              </p>
+              <div class="flex space-x-3">
+                <a href="#" class="text-dark/60 hover:text-primary transition-colors">
+                  <i class="fa fa-weibo text-lg"></i>
+                </a>
+                <a href="#" class="text-dark/60 hover:text-primary transition-colors">
+                  <i class="fa fa-wechat text-lg"></i>
+                </a>
+                <a href="#" class="text-dark/60 hover:text-primary transition-colors">
+                  <i class="fa fa-envelope text-lg"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 嘉宾3 -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 fade-in" style="animation-delay: 0.3s">
+            <div class="h-64 overflow-hidden">
+              <img src="https://picsum.photos/id/1012/600/400" alt="王芳 馆长" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-1">王芳 馆长</h3>
+              <p class="text-primary mb-3">贵州建设职业技术学院图书馆 馆长</p>
+              <p class="text-dark/70 mb-4">
+                图书馆学专家，从事图书馆管理工作20余年，在信息资源建设、阅读推广等方面有丰富经验和深入研究。
+              </p>
+              <div class="flex space-x-3">
+                <a href="#" class="text-dark/60 hover:text-primary transition-colors">
+                  <i class="fa fa-weibo text-lg"></i>
+                </a>
+                <a href="#" class="text-dark/60 hover:text-primary transition-colors">
+                  <i class="fa fa-wechat text-lg"></i>
+                </a>
+                <a href="#" class="text-dark/60 hover:text-primary transition-colors">
+                  <i class="fa fa-envelope text-lg"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 报名区域 -->
+    <section id="register" class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="max-w-5xl mx-auto bg-gradient-to-r from-primary/5 to-tertiary/5 rounded-2xl shadow-xl overflow-hidden">
+          <div class="grid grid-cols-1 lg:grid-cols-2">
+            <!-- 报名表单 -->
+            <div class="p-8 md:p-12 fade-in">
+              <h2 class="text-[clamp(1.8rem,3vw,2.2rem)] font-bold text-dark mb-6">立即报名</h2>
+              <p class="text-dark/70 mb-8">
+                填写以下信息，预约参加我们的活动，名额有限，先到先得
+              </p>
+              
+              <form class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label for="name" class="block text-dark/80 mb-2 font-medium">姓名</label>
+                    <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入您的姓名">
+                  </div>
+                  <div>
+                    <label for="studentId" class="block text-dark/80 mb-2 font-medium">学号/工号</label>
+                    <input type="text" id="studentId" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入学号或工号">
+                  </div>
+                </div>
+                
+                <div>
+                  <label for="department" class="block text-dark/80 mb-2 font-medium">院系/部门</label>
+                  <input type="text" id="department" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入院系或部门">
+                </div>
+                
+                <div>
+                  <label for="phone" class="block text-dark/80 mb-2 font-medium">联系电话</label>
+                  <input type="tel" id="phone" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="请输入联系电话">
+                </div>
+                
+                <div>
+                  <label class="block text-dark/80 mb-2 font-medium">感兴趣的活动（可多选）</label>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <label class="flex items-center space-x-2 cursor-pointer">
+                      <input type="checkbox" class="form-checkbox h-5 w-5 text-primary rounded border-gray-300 focus:ring-primary">
+                      <span>专家讲座</span>
+                    </label>
+                    <label class="flex items-center space-x-2 cursor-pointer">
+                      <input type="checkbox" class="form-checkbox h-5 w-5 text-primary rounded border-gray-300 focus:ring-primary">
+                      <span>读书分享会</span>
+                    </label>
+                    <label class="flex items-center space-x-2 cursor-pointer">
+                      <input type="checkbox" class="form-checkbox h-5 w-5 text-primary rounded border-gray-300 focus:ring-primary">
+                      <span>数字资源推广</span>
+                    </label>
+                    <label class="flex items-center space-x-2 cursor-pointer">
+                      <input type="checkbox" class="form-checkbox h-5 w-5 text-primary rounded border-gray-300 focus:ring-primary">
+                      <span>征文比赛</span>
+                    </label>
+                    <label class="flex items-center space-x-2 cursor-pointer">
+                      <input type="checkbox" class="form-checkbox h-5 w-5 text-primary rounded border-gray-300 focus:ring-primary">
+                      <span>图书漂流</span>
+                    </label>
+                    <label class="flex items-center space-x-2 cursor-pointer">
+                      <input type="checkbox" class="form-checkbox h-5 w-5 text-primary rounded border-gray-300 focus:ring-primary">
+                      <span>图书推荐会</span>
+                    </label>
+                  </div>
+                </div>
+                
+                <div>
+                  <label for="message" class="block text-dark/80 mb-2 font-medium">留言（可选）</label>
+                  <textarea id="message" rows="3" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="如有特殊需求，请在此留言"></textarea>
+                </div>
+                
+                <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1">
+                  提交报名
+                </button>
+              </form>
+            </div>
+            
+            <!-- 活动亮点 -->
+            <div class="bg-primary p-8 md:p-12 text-white flex flex-col justify-center fade-in" style="animation-delay: 0.3s">
+              <h3 class="text-2xl font-bold mb-8">活动亮点</h3>
+              
+              <div class="space-y-6">
+                <div class="flex items-start space-x-4">
+                  <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <i class="fa fa-check text-white"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-xl font-semibold mb-2">专家面对面交流</h4>
+                    <p class="text-white/80">与知名学者、作家近距离互动，解答您的疑惑</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start space-x-4">
+                  <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <i class="fa fa-check text-white"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-xl font-semibold mb-2">丰富的互动体验</h4>
+                    <p class="text-white/80">多样化的活动形式，让阅读变得生动有趣</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start space-x-4">
+                  <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <i class="fa fa-check text-white"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-xl font-semibold mb-2">精美礼品赠送</h4>
+                    <p class="text-white/80">参与活动即可获得图书馆定制纪念品，优秀参与者更有丰厚奖品</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start space-x-4">
+                  <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <i class="fa fa-check text-white"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-xl font-semibold mb-2">学术资源共享</h4>
+                    <p class="text-white/80">免费获取优质数字资源使用权限，提升学习科研能力</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start space-x-4">
+                  <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <i class="fa fa-check text-white"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-xl font-semibold mb-2">拓展人脉资源</h4>
+                    <p class="text-white/80">结识志同道合的书友，拓展学术与社交圈子</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="mt-12 pt-8 border-t border-white/20">
+                <h4 class="text-xl font-semibold mb-4">咨询方式</h4>
+                <div class="space-y-3">
+                  <div class="flex items-center space-x-3">
+                    <i class="fa fa-phone text-xl"></i>
+                    <span>0851-8888XXXX</span>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <i class="fa fa-envelope text-xl"></i>
+                    <span>library@gzjsxy.edu.cn</span>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <i class="fa fa-wechat text-xl"></i>
+                    <span>贵州建设职院图书馆</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 图书馆环境 -->
+    <section class="py-16 md:py-24 bg-light">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-dark mb-4">图书馆环境</h2>
+          <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+          <p class="text-dark/70 max-w-2xl mx-auto">
+            舒适的阅读环境，丰富的馆藏资源，等待您的探索
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 fade-in">
+          <div class="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <img src="https://picsum.photos/id/24/600/400" alt="图书馆大厅" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+          </div>
+          <div class="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <img src="https://picsum.photos/id/42/600/400" alt="阅览区" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+          </div>
+          <div class="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <img src="https://picsum.photos/id/20/600/400" alt="书架区" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+          </div>
+          <div class="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <img src="https://picsum.photos/id/180/600/400" alt="学术报告厅" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="bg-dark text-white py-12 md:py-16">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div>
+          <div class="flex items-center space-x-2 mb-6">
+            <i class="fa fa-book text-primary text-2xl"></i>
+            <span class="text-xl font-semibold">贵州建设职业技术学院图书馆</span>
+          </div>
+          <p class="text-white/70 mb-6">
+            致力于为全院师生提供优质的文献信息服务和良好的阅读环境，推动校园文化建设。
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-white/70 hover:text-primary transition-colors">
+              <i class="fa fa-weibo text-xl"></i>
+            </a>
+            <a href="#" class="text-white/70 hover:text-primary transition-colors">
+              <i class="fa fa-wechat text-xl"></i>
+            </a>
+            <a href="#" class="text-white/70 hover:text-primary transition-colors">
+              <i class="fa fa-qq text-xl"></i>
+            </a>
+            <a href="#" class="text-white/70 hover:text-primary transition-colors">
+              <i class="fa fa-youtube-play text-xl"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="text-lg font-semibold mb-6">快速链接</h3>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-white/70 hover:text-primary transition-colors">学院官网</a></li>
+            <li><a href="#" class="text-white/70 hover:text-primary transition-colors">图书馆首页</a></li>
+            <li><a href="#" class="text-white/70 hover:text-primary transition-colors">数字资源</a></li>
+            <li><a href="#" class="text-white/70 hover:text-primary transition-colors">借阅规则</a></li>
+            <li><a href="#" class="text-white/70 hover:text-primary transition-colors">开放时间</a></li>
+            <li><a href="#" class="text-white/70 hover:text-primary transition-colors">常见问题</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-lg font-semibold mb-6">联系我们</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start space-x-3">
+              <i class="fa fa-map-marker text-primary mt-1"></i>
+              <span class="text-white/70">贵州省贵阳市观山湖区云潭南路3号</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <i class="fa fa-phone text-primary"></i>
+              <span class="text-white/70">0851-8888XXXX</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <i class="fa fa-envelope text-primary"></i>
+              <span class="text-white/70">library@gzjsxy.edu.cn</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <i class="fa fa-clock-o text-primary"></i>
+              <span class="text-white/70">周一至周五: 8:00-22:00</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <i class="fa fa-clock-o text-primary"></i>
+              <span class="text-white/70">周六至周日: 9:00-21:00</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-lg font-semibold mb-6">微信公众号</h3>
+          <div class="bg-white p-2 inline-block rounded-md">
+            <img src="https://picsum.photos/id/1/120/120" alt="微信公众号二维码" class="w-32 h-32">
+          </div>
+          <p class="text-white/70 mt-4 text-sm text-center">
+            扫码关注获取更多活动信息
+          </p>
+        </div>
+      </div>
+      
+      <div class="pt-8 border-t border-white/10 text-center text-white/50 text-sm">
+        <p>© 2025 贵州建设职业技术学院图书馆 版权所有 | 黔ICP备XXXXXXXX号</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 返回顶部按钮 -->
+  <button id="backToTop" class="fixed bottom-8 right-8 bg-primary hover:bg-primary/90 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 z-50">
+    <i class="fa fa-arrow-up"></i>
+  </button>
+
+  <!-- JavaScript -->
+  <script>
+    // 移动端菜单切换
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      if (mobileMenu.classList.contains('hidden')) {
+        menuBtn.innerHTML = '<i class="fa fa-bars"></i>';
+      } else {
+        menuBtn.innerHTML = '<i class="fa fa-times"></i>';
+      }
+    });
+    
+    // 导航栏滚动效果
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('py-2', 'shadow');
+        navbar.classList.remove('py-3');
+      } else {
+        navbar.classList.add('py-3');
+        navbar.classList.remove('py-2', 'shadow');
+      }
+    });
+    
+    // 返回顶部按钮
+    const backToTopBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.remove('opacity-0', 'invisible');
+        backToTopBtn.classList.add('opacity-100', 'visible');
+      } else {
+        backToTopBtn.classList.add('opacity-0', 'invisible');
+        backToTopBtn.classList.remove('opacity-100', 'visible');
+      }
+    });
+    
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // 倒计时功能
+    function updateCountdown() {
+      // 活动开始时间：2024年11月15日 14:30:00
+      const eventDate = new Date('2024-11-15T14:30:00').getTime();
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+      
+      if (distance > 0) {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        document.getElementById('days').innerText = days.toString().padStart(2, '0');
+        document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+      } else {
+        document.getElementById('days').innerText = '00';
+        document.getElementById('hours').innerText = '00';
+        document.getElementById('minutes').innerText = '00';
+        document.getElementById('seconds').innerText = '00';
+      }
+    }
+    
+    // 初始化倒计时并每秒更新
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+    
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        // 关闭移动端菜单
+        if (!mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+          menuBtn.innerHTML = '<i class="fa fa-bars"></i>';
+        }
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          const navbarHeight = navbar.offsetHeight;
+          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // 渐入动画
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const fadeInObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    fadeElements.forEach(element => {
+      element.style.opacity = '0';
+      element.style.transform = 'translateY(20px)';
+      element.style.transition = 'opacity 0.8s ease-in-out, transform 0.8s ease-in-out';
+      fadeInObserver.observe(element);
+    });
+  </script>
+</body>
+</html>
