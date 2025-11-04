@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贵州建设职业技术学院图书馆活动邀请函</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- GSAP 动画库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #f97316;
+            --accent-color: #3b82f6;
+            --light-color: #f8fafc;
+            --dark-color: #0f172a;
+        }
+        
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), #2563eb);
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .countdown-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .countdown-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.25);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+        
+        .card {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .feature-icon {
+            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .form-input {
+            transition: all 0.3s ease;
+            border: 2px solid #e2e8f0;
+        }
+        
+        .form-input:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
+        }
+        
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.6s ease;
+        }
+        
+        .btn-primary:hover::after {
+            left: 100%;
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--secondary-color), #fdba74);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.3);
+        }
+        
+        #library-model {
+            width: 100%;
+            height: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--accent-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            border: 4px solid var(--secondary-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-left {
+            left: 0;
+        }
+        
+        .timeline-right {
+            left: 50%;
+        }
+        
+        .timeline-left::after {
+            right: -17px;
+        }
+        
+        .timeline-right::after {
+            left: -17px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 15px;
+            }
+            
+            .timeline-left::after, .timeline-right::after {
+                left: 15px;
+            }
+            
+            .timeline-right {
+                left: 0;
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 自定义滚动条 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-color);
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .hero-content {
+                padding-top: 6rem;
+            }
+            
+            .countdown-container {
+                flex-wrap: wrap;
+            }
+            
+            .countdown-item {
+                flex: 1 1 45%;
+                margin: 5px;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .hero-section {
+                height: auto;
+                min-height: 100vh;
+            }
+            
+            .countdown-item {
+                flex: 1 1 40%;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="fixed top-0 left-0 w-full bg-white bg-opacity-95 backdrop-blur-md z-50 shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="https://p3-doubao-search-sign.byteimg.com/labis/c1cf43dd79e141982ebdf06ad9962f53~tplv-be4g95zd3a-image.jpeg?rk3s=542c0f93&x-expires=1777812679&x-signature=YGmpuWBtzpoS1E8Okp35n7yQg9U%3D" alt="贵州建设职业技术学院校徽" class="h-12 mr-3">
+                <div>
+                    <h1 class="text-xl font-bold text-gray-800">贵州建设职业技术学院</h1>
+                    <p class="text-sm text-gray-600">图书馆活动邀请函</p>
+                </div>
+            </div>
+            
+            <!-- 桌面导航 -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-gray-700 hover:text-blue-600 font-medium">首页</a>
+                <a href="#about" class="nav-link text-gray-700 hover:text-blue-600 font-medium">活动介绍</a>
+                <a href="#schedule" class="nav-link text-gray-700 hover:text-blue-600 font-medium">活动流程</a>
+                <a href="#highlights" class="nav-link text-gray-700 hover:text-blue-600 font-medium">活动亮点</a>
+                <a href="#library" class="nav-link text-gray-700 hover:text-blue-600 font-medium">图书馆资源</a>
+                <a href="#register" class="nav-link text-gray-700 hover:text-blue-600 font-medium">立即报名</a>
+            </div>
+            
+            <!-- 移动端菜单按钮 -->
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-gray-700 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="md:hidden bg-white shadow-lg rounded-b-lg hidden">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+                <a href="#home" class="text-gray-700 hover:text-blue-600 font-medium py-2 border-b border-gray-100">首页</a>
+                <a href="#about" class="text-gray-700 hover:text-blue-600 font-medium py-2 border-b border-gray-100">活动介绍</a>
+                <a href="#schedule" class="text-gray-700 hover:text-blue-600 font-medium py-2 border-b border-gray-100">活动流程</a>
+                <a href="#highlights" class="text-gray-700 hover:text-blue-600 font-medium py-2 border-b border-gray-100">活动亮点</a>
+                <a href="#library" class="text-gray-700 hover:text-blue-600 font-medium py-2 border-b border-gray-100">图书馆资源</a>
+                <a href="#register" class="text-gray-700 hover:text-blue-600 font-medium py-2">立即报名</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section id="home" class="hero-section flex items-center justify-center">
+        <div class="container mx-auto px-4 z-10">
+            <div class="hero-content text-center text-white">
+                <div class="mb-6 inline-block">
+                    <img src="https://p3-doubao-search-sign.byteimg.com/labis/c1cf43dd79e141982ebdf06ad9962f53~tplv-be4g95zd3a-image.jpeg?rk3s=542c0f93&x-expires=1777812679&x-signature=YGmpuWBtzpoS1E8Okp35n7yQg9U%3D" alt="贵州建设职业技术学院校徽" class="h-24 mx-auto border-4 border-white rounded-full">
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">书香建院·智慧同行</h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">贵州建设职业技术学院图书馆诚邀您共赴书香之约，探索知识的无限可能</p>
+                
+                <!-- 倒计时 -->
+                <div class="countdown-container max-w-3xl mx-auto flex justify-center items-center space-x-4 mb-10">
+                    <div class="countdown-item p-4 text-center">
+                        <div id="days" class="text-3xl md:text-4xl font-bold">00</div>
+                        <div class="text-sm uppercase">天</div>
+                    </div>
+                    <div class="countdown-item p-4 text-center">
+                        <div id="hours" class="text-3xl md:text-4xl font-bold">00</div>
+                        <div class="text-sm uppercase">时</div>
+                    </div>
+                    <div class="countdown-item p-4 text-center">
+                        <div id="minutes" class="text-3xl md:text-4xl font-bold">00</div>
+                        <div class="text-sm uppercase">分</div>
+                    </div>
+                    <div class="countdown-item p-4 text-center">
+                        <div id="seconds" class="text-3xl md:text-4xl font-bold">00</div>
+                        <div class="text-sm uppercase">秒</div>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col md:flex-row justify-center gap-4">
+                    <a href="#register" class="btn-primary text-white font-medium py-3 px-8 rounded-full text-lg">
+                        立即报名
+                    </a>
+                    <a href="#about" class="btn-secondary text-white font-medium py-3 px-8 rounded-full text-lg">
+                        了解更多
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 背景装饰 -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-full bg-[url('https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/c1d183675fed4249a90fa9162ceadf9c~tplv-a9rns2rl98-image.image?rcl=20251104205102D4D3AB095655041B1D44&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1764852694&x-signature=nCkkNnh9wFq0Uw3M4qBCrJ8iUOg%3D')] bg-cover bg-center opacity-10"></div>
+            <div class="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-gray-900 to-transparent"></div>
+        </div>
+    </section>
+
+    <!-- 活动介绍 -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl font-bold text-gray-800 text-center">活动介绍</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-12">
+                <div class="fade-in">
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/840f508cadf843478f1c22e3e440e60f~tplv-a9rns2rl98-image.image?rcl=20251104205102D4D3AB095655041B1D44&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1764852695&x-signature=RbBrD9TOOftvi6pJ0M3qf1vq3Hc%3D" alt="图书馆阅读活动" class="rounded-lg shadow-xl w-full h-auto">
+                </div>
+                
+                <div class="fade-in">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">活动主题</h3>
+                    <p class="text-xl text-blue-600 font-medium mb-6">书香建院·智慧同行</p>
+                    
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">活动时间</h3>
+                    <p class="text-lg text-gray-600 mb-6">2024年11月15日 14:00-17:00</p>
+                    
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">活动地点</h3>
+                    <p class="text-lg text-gray-600 mb-6">贵州建设职业技术学院图书馆三楼多功能厅</p>
+                    
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">活动对象</h3>
+                    <p class="text-lg text-gray-600">贵州建设职业技术学院全体师生</p>
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-blue-50 rounded-xl p-8 fade-in">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">活动背景</h3>
+                <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                    为响应党中央推进的全民阅读号召，落实学校立德树人根本任务，积极推动书香校园建设，营造"喜读书、善读书"的良好学习氛围，贵州建设职业技术学院图书馆特举办此次"书香建院·智慧同行"主题活动。
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    图书馆作为知识的宝库，不仅收藏了丰富的书籍资源，更肩负着推广阅读、促进文化交流的使命。通过本次活动，我们希望激发师生的阅读兴趣，提升信息素养，促进学术交流，为建设学习型校园贡献力量。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 活动流程 -->
+    <section id="schedule" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl font-bold text-gray-800 text-center">活动流程</h2>
+            
+            <div class="timeline mt-12">
+                <div class="timeline-item timeline-left fade-in">
+                    <div class="timeline-content">
+                        <h3 class="text-xl font-bold text-blue-600">14:00-14:30</h3>
+                        <h4 class="text-lg font-semibold text-gray-800 mt-2">开幕式</h4>
+                        <p class="text-gray-600 mt-2">图书馆馆长致辞，介绍活动背景与意义，宣布活动正式开始。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item timeline-right fade-in">
+                    <div class="timeline-content">
+                        <h3 class="text-xl font-bold text-blue-600">14:30-15:30</h3>
+                        <h4 class="text-lg font-semibold text-gray-800 mt-2">主题讲座</h4>
+                        <p class="text-gray-600 mt-2">邀请知名学者分享"信息时代的高效阅读与知识管理"，探讨如何在海量信息中筛选有价值的内容。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item timeline-left fade-in">
+                    <div class="timeline-content">
+                        <h3 class="text-xl font-bold text-blue-600">15:30-15:45</h3>
+                        <h4 class="text-lg font-semibold text-gray-800 mt-2">茶歇交流</h4>
+                        <p class="text-gray-600 mt-2">提供茶点，为师生创造自由交流的机会，分享阅读心得与学习经验。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item timeline-right fade-in">
+                    <div class="timeline-content">
+                        <h3 class="text-xl font-bold text-blue-600">15:45-16:45</h3>
+                        <h4 class="text-lg font-semibold text-gray-800 mt-2">互动工作坊</h4>
+                        <p class="text-gray-600 mt-2">分组进行"信息检索技巧"和"学术论文写作"工作坊，由专业馆员现场指导。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item timeline-left fade-in">
+                    <div class="timeline-content">
+                        <h3 class="text-xl font-bold text-blue-600">16:45-17:00</h3>
+                        <h4 class="text-lg font-semibold text-gray-800 mt-2">闭幕式</h4>
+                        <p class="text-gray-600 mt-2">活动总结，颁发参与证书，宣布活动圆满结束。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 活动亮点 -->
+    <section id="highlights" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl font-bold text-gray-800 text-center">活动亮点</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                <div class="card bg-white p-6 fade-in">
+                    <div class="text-5xl mb-4 feature-icon">
+                        <i class="fas fa-book-reader"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">专家讲座</h3>
+                    <p class="text-gray-600">
+                        邀请知名学者分享高效阅读与知识管理技巧，帮助师生提升信息素养，掌握学术研究方法。
+                    </p>
+                </div>
+                
+                <div class="card bg-white p-6 fade-in">
+                    <div class="text-5xl mb-4 feature-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">互动工作坊</h3>
+                    <p class="text-gray-600">
+                        分组进行实践性强的互动工作坊，由专业馆员现场指导信息检索技巧和学术论文写作方法。
+                    </p>
+                </div>
+                
+                <div class="card bg-white p-6 fade-in">
+                    <div class="text-5xl mb-4 feature-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">精美礼品</h3>
+                    <p class="text-gray-600">
+                        所有参与者将获得图书馆定制纪念品，优秀参与者还将获得精选图书和学习礼包。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="card bg-white p-6 fade-in">
+                    <div class="text-5xl mb-4 feature-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">数字资源体验</h3>
+                    <p class="text-gray-600 mb-4">
+                        现场体验图书馆丰富的数字资源，包括中国知网、万方数据、超星电子图书等数据库的使用技巧。
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">知网</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">万方数据</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">超星电子图书</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">维普资讯</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">建筑数字图书馆</span>
+                    </div>
+                </div>
+                
+                <div class="card bg-white p-6 fade-in">
+                    <div class="text-5xl mb-4 feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">学术交流平台</h3>
+                    <p class="text-gray-600">
+                        活动提供了与同行交流学习的机会，拓展学术视野，建立学习共同体，促进跨学科合作。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 图书馆资源 -->
+    <section id="library" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl font-bold text-gray-800 text-center">图书馆资源</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-12">
+                <div class="fade-in">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">馆藏资源</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 rounded-full p-3 mr-4">
+                                <i class="fas fa-book text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800">纸质图书</h4>
+                                <p class="text-gray-600 mt-1">馆藏图书约24万册，涵盖建筑、工程、管理、计算机等多个学科领域。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 rounded-full p-3 mr-4">
+                                <i class="fas fa-laptop text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800">电子资源</h4>
+                                <p class="text-gray-600 mt-1">拥有电子书30万册，期刊16100种，以及中国知网、万方数据等多个电子数据库。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 rounded-full p-3 mr-4">
+                                <i class="fas fa-building text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800">特色资源</h4>
+                                <p class="text-gray-600 mt-1">中国建筑数字图书馆、建筑行业标准规范数据库等特色资源，满足专业学习需求。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <div id="library-model" class="shadow-xl"></div>
+                </div>
+            </div>
+            
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card bg-white p-6 fade-in">
+                    <div class="text-5xl mb-4 feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">读者服务</h3>
+                    <p class="text-gray-600">
+                        提供图书借阅、参考咨询、信息素养培训、学科服务等全方位服务，满足师生多样化需求。
+                    </p>
+                </div>
+                
+                <div class="card bg-white p-6 fade-in">
+                    <div class="text-5xl mb-4 feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">空间服务</h3>
+                    <p class="text-gray-600">
+                        设有阅览室、自习室、讨论室、多功能厅等多种空间，为师生提供舒适的学习研究环境。
+                    </p>
+                </div>
+                
+                <div class="card bg-white p-6 fade-in">
+                    <div class="text-5xl mb-4 feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">移动服务</h3>
+                    <p class="text-gray-600">
+                        通过移动图书馆APP、微信公众号等平台，提供随时随地的资源检索、借阅续借等服务。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 报名表单 -->
+    <section id="register" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl font-bold text-gray-800 text-center">立即报名</h2>
+            
+            <div class="max-w-3xl mx-auto mt-12 bg-gray-50 rounded-xl p-8 shadow-lg fade-in">
+                <form id="registration-form" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 font-medium mb-2">姓名</label>
+                            <input type="text" id="name" name="name" class="form-input w-full px-4 py-3 rounded-lg focus:outline-none" placeholder="请输入您的姓名" required>
+                        </div>
+                        
+                        <div>
+                            <label for="id-number" class="block text-gray-700 font-medium mb-2">学号/工号</label>
+                            <input type="text" id="id-number" name="id-number" class="form-input w-full px-4 py-3 rounded-lg focus:outline-none" placeholder="请输入您的学号或工号" required>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="email" class="block text-gray-700 font-medium mb-2">电子邮箱</label>
+                            <input type="email" id="email" name="email" class="form-input w-full px-4 py-3 rounded-lg focus:outline-none" placeholder="请输入您的电子邮箱" required>
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-gray-700 font-medium mb-2">联系电话</label>
+                            <input type="tel" id="phone" name="phone" class="form-input w-full px-4 py-3 rounded-lg focus:outline-none" placeholder="请输入您的联系电话" required>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="department" class="block text-gray-700 font-medium mb-2">学院/部门</label>
+                        <input type="text" id="department" name="department" class="form-input w-full px-4 py-3 rounded-lg focus:outline-none" placeholder="请输入您的学院或部门" required>
+                    </div>
+                    
+                    <div>
+                        <label for="interest" class="block text-gray-700 font-medium mb-2">感兴趣的活动环节（可多选）</label>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <div class="flex items-center">
+                                <input type="checkbox" id="interest-1" name="interest" value="主题讲座" class="mr-2 h-5 w-5 text-blue-600">
+                                <label for="interest-1" class="text-gray-700">主题讲座</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="interest-2" name="interest" value="信息检索技巧工作坊" class="mr-2 h-5 w-5 text-blue-600">
+                                <label for="interest-2" class="text-gray-700">信息检索技巧工作坊</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="interest-3" name="interest" value="学术论文写作工作坊" class="mr-2 h-5 w-5 text-blue-600">
+                                <label for="interest-3" class="text-gray-700">学术论文写作工作坊</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="interest-4" name="interest" value="数字资源体验" class="mr-2 h-5 w-5 text-blue-600">
+                                <label for="interest-4" class="text-gray-700">数字资源体验</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="message" class="block text-gray-700 font-medium mb-2">留言（可选）</label>
+                        <textarea id="message" name="message" rows="4" class="form-input w-full px-4 py-3 rounded-lg focus:outline-none" placeholder="请输入您的留言或建议"></textarea>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button type="submit" class="btn-primary text-white font-medium py-3 px-12 rounded-full text-lg">
+                            提交报名
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <img src="https://p3-doubao-search-sign.byteimg.com/labis/c1cf43dd79e141982ebdf06ad9962f53~tplv-be4g95zd3a-image.jpeg?rk3s=542c0f93&x-expires=1777812679&x-signature=YGmpuWBtzpoS1E8Okp35n7yQg9U%3D" alt="贵州建设职业技术学院校徽" class="h-12 mr-3">
+                        <div>
+                            <h3 class="text-xl font-bold">贵州建设职业技术学院</h3>
+                            <p class="text-sm text-gray-400">图书馆</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        秉承"厚德、精技、乐学、善教"的校训，致力于为师生提供优质的文献信息服务。
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-weixin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-weibo text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">联系我们</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">贵州省贵阳市南明区</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">0851-88888888</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">library@gzjszy.cn</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">周一至周日 8:00-22:00</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">快速链接</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">图书馆官网</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">电子资源</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">借阅规则</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">常见问题</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">读者服务</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">© 2024 贵州建设职业技术学院图书馆. 版权所有.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 成功提示模态框 -->
+    <div id="success-modal" class="fixed inset-0 flex items-center justify-center z-50 hidden">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="bg-white rounded-xl p-8 max-w-md w-full z-10 transform transition-all">
+            <div class="text-center">
+                <div class="text-5xl text-green-500 mb-4">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">报名成功</h3>
+                <p class="text-gray-600 mb-6">
+                    感谢您的参与！我们已收到您的报名信息，活动详情将通过邮件发送给您。
+                </p>
+                <button id="close-modal" class="btn-primary text-white font-medium py-2 px-8 rounded-full">
+                    确定
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 移动端菜单切换
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // 如果是移动端，点击后关闭菜单
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // 滚动动画
+        function handleScrollAnimation() {
+            const elements = document.querySelectorAll('.fade-in');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight * 0.85) {
+                    element.classList.add('active');
+                }
+            });
+        }
+        
+        // 初始化滚动动画
+        window.addEventListener('scroll', handleScrollAnimation);
+        window.addEventListener('load', handleScrollAnimation);
+        
+        // 倒计时功能
+        function updateCountdown() {
+            const eventDate = new Date('2024-11-15T14:00:00');
+            const now = new Date();
+            const diff = eventDate - now;
+            
+            if (diff <= 0) {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+                return;
+            }
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        // 初始化倒计时
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+        
+        // 表单提交处理
+        document.getElementById('registration-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 表单验证
+            const name = document.getElementById('name').value;
+            const idNumber = document.getElementById('id-number').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const department = document.getElementById('department').value;
+            
+            if (!name || !idNumber || !email || !phone || !department) {
+                alert('请填写所有必填字段');
+                return;
+            }
+            
+            // 显示成功提示
+            document.getElementById('success-modal').classList.remove('hidden');
+            
+            // 重置表单
+            this.reset();
+        });
+        
+        // 关闭模态框
+        document.getElementById('close-modal').addEventListener('click', function() {
+            document.getElementById('success-modal').classList.add('hidden');
+        });
+        
+        // 点击模态框外部关闭
+        document.getElementById('success-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.add('hidden');
+            }
+        });
+        
+        // 图书馆3D模型
+        function initLibraryModel() {
+            // 创建场景
+            const scene = new THREE.Scene();
+            scene.background = new THREE.Color(0xf0f8ff);
+            
+            // 创建相机
+            const camera = new THREE.PerspectiveCamera(75, document.getElementById('library-model').offsetWidth / document.getElementById('library-model').offsetHeight, 0.1, 1000);
+            camera.position.set(5, 5, 5);
+            camera.lookAt(0, 0, 0);
+            
+            // 创建渲染器
+            const renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(document.getElementById('library-model').offsetWidth, document.getElementById('library-model').offsetHeight);
+            document.getElementById('library-model').appendChild(renderer.domElement);
+            
+            // 添加灯光
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+            scene.add(ambientLight);
+            
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight.position.set(5, 10, 7);
+            scene.add(directionalLight);
+            
+            // 创建图书馆建筑
+            const buildingGroup = new THREE.Group();
+            
+            // 主体建筑
+            const mainBuildingGeometry = new THREE.BoxGeometry(4, 3, 3);
+            const mainBuildingMaterial = new THREE.MeshPhongMaterial({ 
+                color: 0x1a365d,
+                transparent: true,
+                opacity: 0.8
+            });
+            const mainBuilding = new THREE.Mesh(mainBuildingGeometry, mainBuildingMaterial);
+            buildingGroup.add(mainBuilding);
+            
+            // 玻璃外立面
+            const glassGeometry = new THREE.BoxGeometry(4.1, 3.1, 3.1);
+            const glassMaterial = new THREE.MeshPhongMaterial({ 
+                color: 0x3b82f6,
+                transparent: true,
+                opacity: 0.3,
+                side: THREE.BackSide
+            });
+            const glass = new THREE.Mesh(glassGeometry, glassMaterial);
+            buildingGroup.add(glass);
+            
+            // 入口
+            const entranceGeometry = new THREE.BoxGeometry(1, 1.5, 0.1);
+            const entranceMaterial = new THREE.MeshPhongMaterial({ color: 0x0f172a });
+            const entrance = new THREE.Mesh(entranceGeometry, entranceMaterial);
+            entrance.position.set(0, -0.75, 1.55);
+            buildingGroup.add(entrance);
+            
+            // 窗户
+            const windowMaterial = new THREE.MeshPhongMaterial({ 
+                color: 0x93c5fd,
+                transparent: true,
+                opacity: 0.6
+            });
+            
+            // 前面窗户
+            for (let i = -1.5; i <= 1.5; i += 1.5) {
+                for (let j = -0.75; j <= 0.75; j += 1.5) {
+                    const windowGeometry = new THREE.BoxGeometry(0.5, 0.5, 0.05);
+                    const window = new THREE.Mesh(windowGeometry, windowMaterial);
+                    window.position.set(i, j, 1.52);
+                    buildingGroup.add(window);
+                }
+            }
+            
+            // 侧面窗户
+            for (let i = -1; i <= 1; i += 2) {
+                for (let j = -0.75; j <= 0.75; j += 1.5) {
+                    const windowGeometry = new THREE.BoxGeometry(0.5, 0.5, 0.05);
+                    const window = new THREE.Mesh(windowGeometry, windowMaterial);
+                    window.position.set(2.02, j, i);
+                    buildingGroup.add(window);
+                }
+            }
+            
+            // 添加到场景
+            scene.add(buildingGroup);
+            
+            // 添加周围环境
+            const groundGeometry = new THREE.PlaneGeometry(20, 20);
+            const groundMaterial = new THREE.MeshPhongMaterial({ color: 0x10b981 });
+            const ground = new THREE.Mesh(groundGeometry, groundMaterial);
+            ground.rotation.x = -Math.PI / 2;
+            ground.position.y = -1.5;
+            scene.add(ground);
+            
+            // 添加树木
+            function createTree(x, z) {
+                const treeGroup = new THREE.Group();
+                
+                // 树干
+                const trunkGeometry = new THREE.CylinderGeometry(0.2, 0.2, 1, 8);
+                const trunkMaterial = new THREE.MeshPhongMaterial({ color: 0x78350f });
+                const trunk = new THREE.Mesh(trunkGeometry, trunkMaterial);
+                trunk.position.y = -1;
+                treeGroup.add(trunk);
+                
+                // 树叶
+                const leavesGeometry = new THREE.ConeGeometry(1, 2, 8);
+                const leavesMaterial = new THREE.MeshPhongMaterial({ color: 0x22c55e });
+                const leaves = new THREE.Mesh(leavesGeometry, leavesMaterial);
+                leaves.position.y = 1;
+                treeGroup.add(leaves);
+                
+                treeGroup.position.set(x, 0, z);
+                return treeGroup;
+            }
+            
+            // 添加几棵树
+            scene.add(createTree(5, 5));
+            scene.add(createTree(-5, 5));
+            scene.add(createTree(5, -5));
+            scene.add(createTree(-5, -5));
+            scene.add(createTree(3, -3));
+            scene.add(createTree(-3, 3));
+            
+            // 动画
+            function animate() {
+                requestAnimationFrame(animate);
+                
+                // 缓慢旋转建筑
+                buildingGroup.rotation.y += 0.005;
+                
+                renderer.render(scene, camera);
+            }
+            
+            animate();
+            
+            // 响应窗口大小变化
+            window.addEventListener('resize', function() {
+                const width = document.getElementById('library-model').offsetWidth;
+                const height = document.getElementById('library-model').offsetHeight;
+                
+                camera.aspect = width / height;
+                camera.updateProjectionMatrix();
+                
+                renderer.setSize(width, height);
+            });
+        }
+        
+        // 页面加载完成后初始化3D模型
+        window.addEventListener('load', initLibraryModel);
+        
+        // 使用GSAP添加高级动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            // 英雄区域标题动画
+            gsap.from('.hero-content h1', {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                delay: 0.2
+            });
+            
+            gsap.from('.hero-content p', {
+                opacity: 0,
+                y: 30,
+                duration: 1,
+                delay: 0.5
+            });
+            
+            gsap.from('.countdown-container', {
+                opacity: 0,
+                y: 30,
+                duration: 1,
+                delay: 0.8
+            });
+            
+            gsap.from('.hero-content .flex', {
+                opacity: 0,
+                y: 30,
+                duration: 1,
+                delay: 1.1
+            });
+            
+            // 滚动触发动画
+            gsap.registerPlugin(ScrollTrigger);
+            
+            // 活动介绍部分
+            gsap.from('#about .fade-in', {
+                scrollTrigger: {
+                    trigger: '#about',
+                    start: 'top 80%'
+                },
+                opacity: 0,
+                y: 50,
+                duration: 0.8,
+                stagger: 0.2
+            });
+            
+            // 活动流程部分
+            gsap.from('#schedule .fade-in', {
+                scrollTrigger: {
+                    trigger: '#schedule',
+                    start: 'top 80%'
+                },
+                opacity: 0,
+                y: 50,
+                duration: 0.8,
+                stagger: 0.2
+            });
+            
+            // 活动亮点部分
+            gsap.from('#highlights .fade-in', {
+                scrollTrigger: {
+                    trigger: '#highlights',
+                    start: 'top 80%'
+                },
+                opacity: 0,
+                y: 50,
+                duration: 0.8,
+                stagger: 0.2
+            });
+            
+            // 图书馆资源部分
+            gsap.from('#library .fade-in', {
+                scrollTrigger: {
+                    trigger: '#library',
+                    start: 'top 80%'
+                },
+                opacity: 0,
+                y: 50,
+                duration: 0.8,
+                stagger: 0.2
+            });
+            
+            // 报名表单部分
+            gsap.from('#register .fade-in', {
+                scrollTrigger: {
+                    trigger: '#register',
+                    start: 'top 80%'
+                },
+                opacity: 0,
+                y: 50,
+                duration: 0.8
+            });
+        });
+    </script>
+</body>
+</html>
