@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贵州建设职业技术学院图书馆 - 优读剧场邀请函</title>
+    <style>
+        /* 全局战争年代风格设置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "SimSun", "宋体", serif;
+        }
+        body {
+            background-color: #1a1a1a;
+            color: #f0e6d2;
+            line-height: 1.8;
+            /* 背景图：使用本地绝对路径（D盘指定目录），添加备用背景色 */
+            background-image: url("D:/前端学习软件/邀请函/images/tu2.png");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-blend-mode: overlay;
+            background-color: #2c2820; /* 图片加载失败时备用 */
+        }
+        /* 遮罩层增强背景层次感 */
+        .mask {
+            width: 100%;
+            min-height: 100vh;
+            background-color: rgba(15, 15, 15, 0.85);
+            padding: 40px 20px;
+        }
+        /* 邀请函主体样式 */
+        .invitation {
+            max-width: 1000px;
+            margin: 0 auto;
+            border: 2px solid #8b4513;
+            padding: 50px;
+            background-color: rgba(26, 24, 21, 0.9);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+            position: relative;
+        }
+        /* 复古装饰元素 */
+        .invitation::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%238b4513' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
+            z-index: 0;
+        }
+        /* 标题样式 */
+        .title-section {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
+        }
+        .title-section h1 {
+            font-size: 2.5rem;
+            color: #d4af37;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            letter-spacing: 5px;
+        }
+        .title-section h2 {
+            font-size: 1.8rem;
+            color: #f0e6d2;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #8b4513;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        .title-section p {
+            font-size: 1.1rem;
+            color: #d9c8a9;
+        }
+        /* 活动介绍样式 */
+        .intro-section, .content-section, .time-section {
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 1;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            color: #d4af37;
+            margin-bottom: 20px;
+            border-left: 4px solid #8b4513;
+            padding-left: 15px;
+        }
+        .intro-section p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+        /* 内容板块样式 */
+        .content-card {
+            background-color: rgba(44, 41, 36, 0.7);
+            border: 1px solid #8b4513;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+        }
+        .content-card h3 {
+            font-size: 1.3rem;
+            color: #d4af37;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed #8b4513;
+            padding-bottom: 10px;
+        }
+        .content-card p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+        /* 图片容器与图片样式（核心：适配本地路径） */
+        .img-container {
+            width: 100%;
+            margin: 20px 0;
+            padding: 5px;
+            border: 1px solid #8b4513;
+            background-color: rgba(44, 41, 36, 0.5);
+            min-height: 220px; /* 防止加载失败时容器塌陷 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        /* 本地图片样式：确保适配绝对路径加载 */
+        .event-img, .content-img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            display: block;
+            object-fit: contain; /* 保持图片完整，不裁剪文字信息 */
+            border: 1px solid #6b3a10;
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out;
+        }
+        /* 图片加载完成后显示 */
+        .event-img.loaded, .content-img.loaded {
+            opacity: 1;
+        }
+        /* 加载/错误提示：增强用户体验 */
+        .img-loading {
+            position: absolute;
+            color: #d9c8a9;
+            font-size: 1rem;
+            z-index: 0;
+        }
+        .img-error {
+            position: absolute;
+            color: #d4af37;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 0 10px;
+            z-index: 1;
+            display: none;
+        }
+        /* 时间安排样式 */
+        .time-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .time-table th, .time-table td {
+            border: 1px solid #8b4513;
+            padding: 15px;
+            text-align: center;
+        }
+        .time-table th {
+            background-color: rgba(139, 69, 19, 0.3);
+            color: #d4af37;
+            font-size: 1.1rem;
+        }
+        .time-table td {
+            background-color: rgba(44, 41, 36, 0.5);
+            font-size: 1rem;
+        }
+        /* 邀请对象与落款样式 */
+        .invitee-section, .footer-section {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        .invitee-section p, .footer-section p {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        .footer-section .host {
+            font-size: 1.2rem;
+            color: #d4af37;
+            margin-top: 30px;
+        }
+        /* 响应式调整：适配不同设备 */
+        @media (max-width: 768px) {
+            .invitation {
+                padding: 30px 20px;
+            }
+            .title-section h1 {
+                font-size: 2rem;
+            }
+            .title-section h2 {
+                font-size: 1.5rem;
+            }
+            .section-title {
+                font-size: 1.3rem;
+            }
+            .time-table th, .time-table td {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+            .event-img, .content-img {
+                max-width: 100%;
+            }
+            .img-container {
+                min-height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="mask">
+        <div class="invitation">
+            <!-- 标题区域 -->
+            <div class="title-section">
+                <h1>优读剧场第二期</h1>
+                <h2>《烽火卷书：黔州星火》邀请函</h2>
+                <p>—— 典耀中华主题读书活动之“时光共振优读剧场” ——</p>
+            </div>
+
+            <!-- 活动介绍区域：插入tu1.png（活动主题图） -->
+            <div class="intro-section">
+                <h3 class="section-title">活动简介</h3>
+                <p>优读剧场是贵州建设职业技术学院图书馆推出的系列沉浸式读书分享活动，是一种创新的阅读推广模式。该模式巧妙融合表演艺术，将书籍内容以更生动、直观的方式呈现给读者，不仅能提升读者的阅读体验，更能激发大家对历史和英雄主义主题的深刻思考。</p>
+                <p>优读剧场第一期《烽火卷书：抗日的回响》演出后，在全校师生中获得良好反响。为进一步传承红色基因、弘扬革命精神，图书馆特推出第二期活动，聚焦黔州大地的革命历史，以《贵阳史话》为蓝本，再现烽火岁月中的英雄故事。</p>
+                <div class="img-container">
+                    <span class="img-loading">活动主题图加载中...</span>
+                    <span class="img-error" id="error-tu1">活动主题图加载失败，请检查：D:\前端学习软件\邀请函\images\tu1.png 是否存在</span>
+                    <!-- 图片路径：严格匹配D盘指定目录 -->
+                    <img src="D:\aaa\example.com\images" alt="典耀中华主题读书活动之'时光共振优读剧场'标识" class="event-img" id="img-tu1">
+                </div>
+            </div>
+
+            <!-- 活动内容区域 -->
+            <div class="content-section">
+                <h3 class="section-title">核心内容呈现</h3>
+                
+                <!-- 林青就义板块：插入tu3.png（林青生平图） -->
+                <div class="content-card">
+                    <h3>1. 林青就义：黔州革命的火种</h3>
+                    <p>1935年9月11日，中共贵州省工委书记林青在贵州监狱刑场上，面对死亡毫无畏惧，高呼“中国共产党万岁！”和“打倒国民党反动派！”。这位年仅24岁的共产党员，用生命践行了革命信仰，他的牺牲如星火般照亮了黔州大地的革命道路。</p>
+                    <p>林青，原名李远方，1911年4月20日生于毕节七星关区贫农家庭。1930年赴上海，1931年在沪东区团委参与革命工作；1934年1月，与缪正元共同介绍秦天真入党，并组建党支部担任书记；1935年7月19日，因叛徒出卖不幸被捕，最终英勇就义。</p>
+                    <div class="img-container">
+                        <span class="img-loading">林青生平图加载中...</span>
+                        <span class="img-error" id="error-tu3">林青生平图加载失败，请检查：D:\前端学习软件\邀请函\images\tu3.png 是否存在</span>
+                        <!-- 图片路径：严格匹配D盘指定目录 -->
+                        <img src="\example.com\images\tu1.png" alt="林青同志生平事迹" class="content-img" id="img-tu3">
+                    </div>
+                </div>
+
+                <!-- 贵阳民众革命板块：插入tu2.png（活动副标题图） -->
+                <div class="content-card">
+                    <h3>2. 贵阳民众革命：觉醒的力量</h3>
+                    <p>五四运动期间，北京学生联合会向各省学生发出通电号召，贵州军阀为遏制学生运动，极力封锁消息，下令各报馆不得登载外地运动动态。然而，北京学生的通电、传单等宣传品仍通过多种渠道传入贵阳，贵阳学生自发酝酿声援运动，市民也逐渐关注革命动向。</p>
+                    <p>在此背景下，筑光合唱团（贵阳）、贵阳沙陀业余话剧社等进步团体相继成立，成为传播革命思想、凝聚民众力量的重要载体，为黔州地区的革命运动注入了鲜活动力。</p>
+                    <div class="img-container">
+                        <span class="img-loading">活动副标题图加载中...</span>
+                        <span class="img-error" id="error-tu2">活动副标题图加载失败，请检查：D:\前端学习软件\邀请函\images\tu2.png 是否存在</span>
+                        <!-- 图片路径：严格匹配D盘指定目录 -->
+                        <img src="D:/前端学习软件/邀请函/images/tu2.png" alt="《贵阳史话》优读剧场第二期副标题标识" class="content-img" id="img-tu2">
+                    </div>
+                </div>
+
+                <!-- 忻口战役板块：插入tu4.png（历史场景辅助图） -->
+                <div class="content-card">
+                    <h3>3. 忻口战役：铁血抗倭的担当</h3>
+                    <p>1937年，抗日战争全面爆发后两年，国民党第九军接到北上抗日命令。活动将聚焦一位追随郝梦龄上将北上的黔州籍战士，通过他的视角再现忻口战役的惨烈与悲壮。这位主角以自身牺牲打破了农民阶级的保守性枷锁，用热血诠释了“天下兴亡，匹夫有责”的民族大义。</p>
+                    <p>忻口战役是抗日战争中华北地区规模最大、战斗最激烈的一次战役，无数中华儿女前赴后继，用生命捍卫国家主权，此次片段呈现旨在缅怀先烈、传承抗倭精神。</p>
+                    <div class="img-container">
+                        <span class="img-loading">历史场景图加载中...</span>
+                        <span class="img-error" id="error-tu4">历史场景图加载失败，请检查：D:\前端学习软件\邀请函\images\tu4.png 是否存在</span>
+                        <!-- 图片路径：严格匹配D盘指定目录 -->
+                        <img src="D:/前端学习软件/邀请函/images/tu4.png" alt="忻口战役历史场景辅助图" class="content-img" id="img-tu4">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 演出时间区域 -->
+            <div class="time-section">
+                <h3 class="section-title">演出时间安排</h3>
+                <table class="time-table">
+                    <thead>
+                        <tr>
+                            <th>场次</th>
+                            <th>演出时间</th>
+                            <th>备注</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>第一场</td>
+                            <td>2025年11月12日 14:00</td>
+                            <td>首演场</td>
+                        </tr>
+                        <tr>
+                            <td>第二场</td>
+                            <td>2025年11月13日 10:30</td>
+                            <td>日间场</td>
+                        </tr>
+                        <tr>
+                            <td>第三场</td>
+                            <td>2025年11月13日 14:00</td>
+                            <td>日间场</td>
+                        </tr>
+                        <tr>
+                            <td>第四场</td>
+                            <td>2025年11月14日 10:30</td>
+                            <td>日间场</td>
+                        </tr>
+                        <tr>
+                            <td>第五场</td>
+                            <td>2025年11月14日 14:00</td>
+                            <td>收官场</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 邀请对象区域 -->
+            <div class="invitee-section">
+                <h3 class="section-title">诚挚邀请</h3>
+                <p>尊敬的学校领导、各部门老师：</p>
+                <p>值此红色历史传承之际，贵州建设职业技术学院图书馆谨以最诚挚的心意，邀请您莅临优读剧场第二期《烽火卷书：黔州星火》现场，共同回望黔州大地的革命岁月，感受英雄儿女的家国情怀。</p>
+                <p>我们期待与您一同在沉浸式体验中重温历史、汲取力量，让红色基因在校园中代代相传。</p>
+            </div>
+
+            <!-- 落款区域 -->
+            <div class="footer-section">
+                
+               
+                <p>活动地点：贵州建设职业技术学院图书馆报告厅</p>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- 图片加载监控脚本：解决本地路径加载问题，适配报错处理 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 本地图片配置列表：关联图片ID、错误提示ID、本地路径
+            const localImageConfig = [
+                {
+                    imgId: 'img-tu1',
+                    errorId: 'error-tu1',
+                    localPath: 'D:/前端学习软件/邀请函/images/tu1.png',
+                    imgDesc: '活动主题图（tu1.png）'
+                },
+                {
+                    imgId: 'img-tu2',
+                    errorId: 'error-tu2',
+                    localPath: 'D:/前端学习软件/邀请函/images/tu2.png',
+                    imgDesc: '活动副标题图（tu2.png）'
+                },
+                {
+                    imgId: 'img-tu3',
+                    errorId: 'error-tu3',
+                    localPath: 'D:/前端学习软件/邀请函/images/tu3.png',
+                    imgDesc: '林青生平图（tu3.png）'
+                },
+                {
+                    imgId: 'img-tu4',
+                    errorId: 'error-tu4',
+                    localPath: 'D:/前端学习软件/邀请函/images/tu4.png',
+                    imgDesc: '历史场景图（tu4.png）'
+                }
+            ];
+
+            // 处理本地图片加载（适配Windows绝对路径）
+            function handleLocalImageLoad(config) {
+                const img = document.getElementById(config.imgId);
+                const errorEl = document.getElementById(config.errorId);
+                const loadingEl = img.parentElement.querySelector('.img-loading');
+
+                // 图片加载成功：显示图片，隐藏加载提示
+                img.onload = function() {
+                    img.classList.add('loaded');
+                    loadingEl.style.display = 'none';
+                    console.log(`✅ 本地图片加载成功：${config.imgDesc}`);
+                };
+
+                // 处理加载失败（针对“不支持该文件类型”“路径错误”等报错）
+                img.onerror = function() {
+                    console.error(`❌ 本地图片加载失败：${config.imgDesc}`);
+                    // 显示错误提示，指导用户检查路径
+                    loadingEl.style.display = 'none';
+                    errorEl.style.display = 'block';
+                    // 额外提示：检查文件是否为标准PNG格式（避免格式报错）
+                    errorEl.innerHTML += "<br>提示：请确认图片为标准PNG格式，无损坏或格式篡改";
+                };
+
+                // 处理缓存中已存在的本地图片
+                if (img.complete) {
+                    img.onload();
+                }
+
+                // 主动触发本地图片加载（解决部分浏览器本地路径延迟问题）
+                if (img.src !== config.localPath) {
+                    img.src = config.localPath;
+                }
+            }
+
+            // 批量处理所有本地图片
+            localImageConfig.forEach(config => handleLocalImageLoad(config));
+
+            // 监控背景图（tu2.png）加载状态
+            const bgImg = new Image();
+            bgImg.src = 'D:/前端学习软件/邀请函/images/tu2.png';
+            bgImg.onerror = function() {
+                console.error('❌ 背景图（tu2.png）加载失败，已启用备用背景色');
+                document.body.style.backgroundColor = '#2c2820';
+            };
+        });
+    </script>
+</body>
+</html>
