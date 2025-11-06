@@ -135,7 +135,7 @@
             position: relative;
             z-index: 1;
         }
-        /* 最后两页内容居中样式 */
+        /* 最后两页内容居中样式（移除第二页） */
         .page[data-page="6"] .section,
         .page[data-page="7"] .section {
             display: flex;
@@ -143,25 +143,30 @@
             align-items: center;
             justify-content: center;
             min-height: calc(100vh - 120px); /* 占满页面高度（减去边距和状态条） */
-            text-align: center;
+            /* 移除text-align: center，让文字居左 */
         }
-        /* 第二页文字居中样式（新增） */
+        /* 移除第二页文字居中样式 */
         .page[data-page="2"] .section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: calc(100vh - 80px); /* 占满页面高度 */
-            text-align: center;
+            display: block; /* 改为块级元素，取消flex居中 */
+            min-height: auto; /* 取消固定高度 */
             padding: 20px 0;
         }
-        .page[data-page="6"] .section p,
-        .page[data-page="7"] .section p,
-        .page[data-page="2"] .section p { /* 第二页加入居中样式 */
-            text-indent: 0; /* 取消首行缩进，居中更美观 */
+        /* 调整文字居中样式（移除第二页和第七页） */
+        .page[data-page="6"] .section p {
+            text-indent: 0; /* 第六页保持居中无缩进 */
             max-width: 90%; /* 限制最大宽度，避免文字过宽 */
             margin-left: auto;
             margin-right: auto;
+            text-align: center;
+        }
+        /* 第二页和第七页文字居左，恢复首行缩进 */
+        .page[data-page="2"] .section p,
+        .page[data-page="7"] .section p {
+            text-indent: 2em; /* 恢复首行缩进 */
+            max-width: 100%; /* 取消宽度限制 */
+            margin-left: 0;
+            margin-right: 0;
+            text-align: left; /* 明确居左 */
         }
         .page[data-page="6"] .time-table {
             margin-left: auto;
@@ -172,6 +177,8 @@
         .page[data-page="7"] .footer-section {
             margin-top: -40px !important; /* 关键调整：往上移动40px（比之前多移20px） */
             margin-bottom: 20px; /* 适当调整底部间距 */
+            text-align: left; /* 底部文字也居左 */
+            padding-left: 2em; /* 与正文缩进对齐 */
         }
         /* 第七页内容区额外上移 */
         .page[data-page="7"] .invitee-section {
@@ -187,19 +194,29 @@
             position: relative;
             display: inline-block;
         }
-        /* 最后两页和第二页的section-title取消左边框，居中显示 */
-        .page[data-page="2"] .section-title, /* 第二页加入 */
-        .page[data-page="6"] .section-title,
-        .page[data-page="7"] .section-title {
+        /* 调整section-title样式（移除第二页和第七页的居中设置） */
+        .page[data-page="6"] .section-title {
             border-left: none;
             padding-left: 0;
             margin-bottom: 20px;
+            text-align: center;
         }
-        .page[data-page="2"] .section-title::after, /* 第二页加入 */
-        .page[data-page="6"] .section-title::after,
-        .page[data-page="7"] .section-title::after {
+        .page[data-page="2"] .section-title,
+        .page[data-page="7"] .section-title {
+            border-left: 2px solid #8b4513; /* 恢复左边框 */
+            padding-left: 8px; /* 恢复内边距 */
+            margin-bottom: 10px;
+            text-align: left; /* 标题居左 */
+        }
+        /* 调整下划线样式 */
+        .page[data-page="6"] .section-title::after {
             left: 0;
             width: 100%;
+        }
+        .page[data-page="2"] .section-title::after,
+        .page[data-page="7"] .section-title::after {
+            left: 8px; /* 恢复下划线起始位置 */
+            width: 0;
         }
         .section-title::after {
             content: "";
@@ -213,6 +230,10 @@
         }
         .section-title:hover::after {
             width: calc(100% - 8px);
+        }
+        /* 第六页标题hover样式单独设置 */
+        .page[data-page="6"] .section-title:hover::after {
+            width: 100%;
         }
         .section p {
             font-size: 0.9rem; /* 适当调整正文大小，保证可读性 */
@@ -458,11 +479,13 @@
             .section {
                 margin-bottom: 50px;
             }
-            /* 桌面端最后两页和第二页内容居中调整 */
-            .page[data-page="2"] .section, /* 第二页加入 */
-            .page[data-page="6"] .section,
-            .page[data-page="7"] .section {
+            /* 桌面端内容居中调整（移除第二页和第七页） */
+            .page[data-page="6"] .section {
                 min-height: calc(100vh - 200px);
+            }
+            .page[data-page="2"] .section,
+            .page[data-page="7"] .section {
+                min-height: auto;
             }
             .page[data-page="6"] .time-table {
                 max-width: 70%;
@@ -473,13 +496,17 @@
                 border-left: 4px solid #8b4513;
                 padding-left: 15px;
             }
-            /* 桌面端最后两页和第二页的section-title样式 */
-            .page[data-page="2"] .section-title, /* 第二页加入 */
-            .page[data-page="6"] .section-title,
-            .page[data-page="7"] .section-title {
+            /* 桌面端section-title样式（调整第二页和第七页） */
+            .page[data-page="6"] .section-title {
                 border-left: none;
                 padding-left: 0;
                 font-size: 1.8rem;
+            }
+            .page[data-page="2"] .section-title,
+            .page[data-page="7"] .section-title {
+                border-left: 4px solid #8b4513;
+                padding-left: 15px;
+                font-size: 1.5rem;
             }
             .section-title::after {
                 bottom: -5px;
@@ -487,6 +514,12 @@
             }
             .section-title:hover::after {
                 width: calc(100% - 15px);
+            }
+            .page[data-page="6"] .section-title::after {
+                left: 0;
+            }
+            .page[data-page="6"] .section-title:hover::after {
+                width: 100%;
             }
             .section p {
                 font-size: 1.1rem;
@@ -554,6 +587,7 @@
             /* 桌面端第七页上移调整 */
             .page[data-page="7"] .footer-section {
                 margin-top: -50px !important; /* 桌面端往上移动更多 */
+                padding-left: 2em;
             }
             .page[data-page="7"] .invitee-section {
                 margin-top: -40px; /* 桌面端内容区上移更多 */
@@ -627,7 +661,7 @@
                         <div class="title-section">
                             <h1>优读剧场第二期</h1>
                             <h2>《烽火卷书：黔州星火》邀请函</h2>
-                            <p>—— 典耀中华主题读书活动之 ——</p>
+                            <p>—— 典耀中华主题读书活动之“时光共振优读剧场” ——</p>
                         </div>
 
                         <div class="section intro-section">
@@ -644,7 +678,7 @@
                 </div>
             </div>
 
-            <!-- 第2页：简洁邀请页（已删除图片，文字居中） -->
+            <!-- 第2页：简洁邀请页（文字居左） -->
             <div class="page" data-page="2">
                 <div class="mask">
                     <div class="invitation">
@@ -652,7 +686,7 @@
                             <h3 class="section-title">特邀莅临</h3>
                             <p>尊敬的XXX：</p>
                             <p>图书馆将于2025年11月12日14：00，在图书馆三楼会议室举办优读剧场第二期《烽火卷书：黔州星火》，期待您的到来！</p>
-                            <p style="text-align: right; margin-top: 30px;">图书馆</p>
+                            <p style="margin-top: 30px; text-align: right;">图书馆</p>
                             <p style="text-align: right;">2025年11月6日</p>
                         </div>
                     </div>
@@ -768,7 +802,7 @@
                 </div>
             </div>
 
-            <!-- 原第6页 → 现第7页（已整体上调） -->
+            <!-- 原第6页 → 现第7页（文字居左） -->
             <div class="page" data-page="7">
                 <div class="mask">
                     <div class="invitation">
