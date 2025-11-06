@@ -522,7 +522,7 @@
             white-space: nowrap;
             display: none;
         }
-        /* 音频加载进度条（新增） */
+        /* 音频加载进度条 */
         .music-progress {
             position: absolute;
             top: 50px;
@@ -779,21 +779,25 @@
 </head>
 <body>
     <div class="page-container" id="container">
-        <!-- 音乐控制相关元素（优化结构） -->
+        <!-- 音乐控制相关元素 -->
         <audio id="backgroundMusic" loop preload="metadata">
             <!-- 增加备用音频格式，提升兼容性 -->
             <source src="music/background.mp3" type="audio/mpeg">
             <source src="music/background.ogg" type="audio/ogg">
             您的浏览器不支持音频播放
-         </audio>
-        <!-- 音频加载进度条（新增） -->
+        </audio>
+        
+        <!-- 音频加载进度条 -->
         <div class="music-progress" id="musicProgress">
             <div class="music-progress-bar" id="musicProgressBar"></div>
         </div>
+        
+        <!-- 音乐控制按钮 -->
         <div class="music-control" id="musicControl">
             <div class="music-icon play" id="musicIcon"></div>
         </div>
-        <!-- 音频状态提示（合并加载/错误提示） -->
+        
+        <!-- 音频状态提示 -->
         <div class="music-status" id="musicStatus"></div>
         
         <div class="page-content" id="content">
@@ -893,264 +897,140 @@
                     </div>
                 </div>
             </div>
-
-            <!-- 原第4页 → 现第5页 -->
-            <div class="page" data-page="5">
-                <div class="mask">
-                    <div class="invitation">
-                        <div class="section content-section">
-                            <div class="content-card">
-                                <h3>3. 忻口战役：铁血抗倭的担当</h3>
-                                <p>1937年，抗日战争全面爆发后两年，国民党第九军接到北上抗日命令。活动将聚焦一位追随郝梦龄上将北上的黔州籍战士，通过他的视角再现忻口战役的惨烈与悲壮。这位主角以自身牺牲打破了农民阶级的保守性枷锁，用热血诠释了“天下兴亡，匹夫有责”的民族大义。</p>
-                                <p>忻口战役是抗日战争中华北地区规模最大、战斗最激烈的一次战役，无数中华儿女前赴后继，用生命捍卫国家主权，此次片段呈现旨在缅怀先烈、传承抗倭精神。</p>
-                                <div class="img-container">
-                                    <span class="img-loading">历史场景图加载中...</span>
-                                    <span class="img-error" id="error-tu4">非常抱歉，图片加载失败</span>
-                                    <img src="images/tu4.png" alt="忻口战役历史场景辅助图" class="content-img" id="img-tu4">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 原第5页 → 现第6页 -->
-            <div class="page" data-page="6">
-                <div class="mask">
-                    <div class="invitation">
-                        <div class="section time-section">
-                            <h3 class="section-title">演出时间安排</h3>
-                            <table class="time-table">
-                                <thead>
-                                    <tr>
-                                        <th>场次</th>
-                                        <th>演出时间</th>
-                                        <th>备注</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>第一场</td>
-                                        <td>2025年11月10日 14:00</td>
-                                        <td>首演场</td>
-                                    </tr>
-                                    <tr>
-                                        <td>第二场</td>
-                                        <td>2025年11月11日 10:30</td>
-                                        <td>日间场</td>
-                                    </tr>
-                                    <tr>
-                                        <td>第三场</td>
-                                        <td>2025年11月11日 14:00</td>
-                                        <td>日间场</td>
-                                    </tr>
-                                    <tr>
-                                        <td>第四场</td>
-                                        <td>2025年11月12日 10:30</td>
-                                        <td>日间场</td>
-                                    </tr>
-                                    <tr>
-                                        <td>第五场</td>
-                                        <td>2025年11月12日 14:00</td>
-                                        <td>收官场</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 第7页：正式邀请函格式（边框统一，内容规范） -->
-            <div class="page" data-page="7">
-                <div class="mask">
-                    <div class="invitation">
-                        <div class="section invitee-section">
-                            <h3 class="section-title">诚挚邀请</h3>
-                            <div class="invite-container">
-                                <div class="salutation">尊敬的各位领导、老师：</div>
-                                <div class="body">
-                                    <p>红色基因，薪火相传；黔州大地，英雄辈出。为深入学习贯彻习近平总书记关于传承红色基因的重要论述，丰富校园文化生活，贵州建设职业技术学院图书馆精心打造优读剧场第二期《烽火卷书：黔州星火》。</p>
-                                    <p>本次活动以沉浸式戏剧演绎为核心，再现林青就义、贵阳民众觉醒、忻口战役等经典历史场景，让观众穿越时空，感受革命先辈的坚定信仰与家国情怀。我们深信，这场红色文化盛宴，必将成为一次深刻的精神洗礼。</p>
-                                    <p>谨邀您拨冗出席，与我们一同在剧场中重温峥嵘岁月，在感悟历史中凝聚奋进力量，共同推动红色文化在校园落地生根、开花结果。</p>
-                                </div>
-                                <div class="closing">顺颂时祺！</div>
-                                <div class="signature">
-                                    <div class="host">贵州建设职业技术学院</div>
-                                    <div class="date">2025年11月6日</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="footer-section">
-                            <p>演出地点：贵州建设职业技术学院图书馆三楼会议室</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
-        <!-- 底部状态条 -->
-        <div class="page-status" id="status">当前 1/7 页 · 5秒后自动翻页（点击箭头/上下滑动可切换）</div>
-        <!-- 动态翻页提示（极致缩小版） -->
+        
+        <!-- 翻页提示 -->
         <div class="scroll-tip" id="scrollTip">
             <div class="scroll-arrow"></div>
-            <span>下页</span> <!-- 极致简化提示文字 -->
+            <span>点击翻页</span>
+        </div>
+        
+        <!-- 页码状态 -->
+        <div class="page-status" id="pageStatus">
+            第 1 页 / 共 7 页
         </div>
     </div>
 
     <script>
-        // 翻页配置（总页数更新为7）
-        const config = {
-            totalPages: 7,  // 总页数更新为7
-            interval: 5000, // 自动翻页间隔(ms)
-            currentPage: 1, // 当前页
-            startY: 0,      // 触摸起始Y坐标
-            autoTimer: null // 自动翻页定时器
-        };
-
-        // 初始化自动翻页
-        function startAutoPage() {
-            config.autoTimer = setInterval(() => {
-                nextPage();
-            }, config.interval);
-        }
-
-        // 下一页
-        function nextPage() {
-            config.currentPage = config.currentPage >= config.totalPages ? 1 : config.currentPage + 1;
-            updatePage();
-        }
-
-        // 上一页
-        function prevPage() {
-            config.currentPage = config.currentPage <= 1 ? config.totalPages : config.currentPage - 1;
-            updatePage();
-        }
-
-        // 更新页面（加过渡动画）
-        function updatePage() {
+        // 页面翻页功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const pages = document.querySelectorAll('.page');
+            const totalPages = pages.length;
+            const pageStatus = document.getElementById('pageStatus');
+            const scrollTip = document.getElementById('scrollTip');
             const content = document.getElementById('content');
-            content.style.opacity = 0;
             
-            setTimeout(() => {
+            // 更新页码显示
+            function updatePageStatus(currentPage) {
+                pageStatus.textContent = `第 ${currentPage} 页 / 共 ${totalPages} 页`;
+            }
+            
+            // 切换到指定页面
+            function goToPage(pageNum) {
                 // 隐藏所有页面
-                document.querySelectorAll('.page').forEach(page => {
+                pages.forEach(page => {
                     page.classList.remove('active');
                 });
-                // 显示当前页
-                document.querySelector(`.page[data-page="${config.currentPage}"]`).classList.add('active');
-                // 更新状态文字（提示点击功能）
-                document.getElementById('status').innerText = `当前 ${config.currentPage}/${config.totalPages} 页 · 5秒后自动翻页（点击箭头/上下滑动可切换）`;
-                // 恢复透明度
-                content.style.opacity = 1;
-            }, 300);
-        }
-
-        // 触摸滑动逻辑
-        document.getElementById('container').addEventListener('touchstart', (e) => {
-            config.startY = e.touches[0].clientY;
-            clearInterval(config.autoTimer); // 触摸时暂停自动翻页
-        });
-
-        document.getElementById('container').addEventListener('touchend', (e) => {
-            const endY = e.changedTouches[0].clientY;
-            const diffY = endY - config.startY;
-            
-            // 滑动距离超过50px判定为有效滑动
-            if (diffY > 50) prevPage(); // 上滑（手指从下往上）
-            if (diffY < -50) nextPage(); // 下滑（手指从上往下）
-            
-            startAutoPage(); // 滑动结束后重启自动翻页
-        });
-
-        // 点击动态提示组件翻页
-        document.getElementById('scrollTip').addEventListener('click', () => {
-            clearInterval(config.autoTimer); // 点击时暂停自动翻页
-            nextPage(); // 直接跳转到下一页
-            startAutoPage(); // 翻页后重启自动翻页
-        });
-
-        // 图片加载处理
-        document.addEventListener('DOMContentLoaded', function() {
-            // 本地图片配置列表（已移除邀请页图片配置）
-            const localImageConfig = [
-                {
-                    imgId: 'schoolLogo',
-                    errorId: 'error-logo',
-                    localPath: 'images/school-logo.png',
-                    imgDesc: '学校校徽（school-logo.png）'
-                },
-                {
-                    imgId: 'img-tu1',
-                    errorId: 'error-tu1',
-                    localPath: 'images/tu1.png',
-                    imgDesc: '活动主题图（tu1.png）'
-                },
-                {
-                    imgId: 'img-tu2',
-                    errorId: 'error-tu2',
-                    localPath: 'images/tu2.png',
-                    imgDesc: '活动副标题图（tu2.png）'
-                },
-                {
-                    imgId: 'img-tu3',
-                    errorId: 'error-tu3',
-                    localPath: 'images/tu3.png',
-                    imgDesc: '林青生平图（tu3.png）'
-                },
-                {
-                    imgId: 'img-tu4',
-                    errorId: 'error-tu4',
-                    localPath: 'images/tu4.png',
-                    imgDesc: '历史场景图（tu4.png）'
-                }
-            ];
-
-            // 处理本地图片加载
-            function handleLocalImageLoad(config) {
-                const img = document.getElementById(config.imgId);
-                const errorEl = document.getElementById(config.errorId);
-                const loadingEl = img.parentElement.querySelector('.img-loading');
-
-                img.onload = function() {
-                    img.classList.add('loaded');
-                    if (loadingEl) loadingEl.style.display = 'none';
-                    console.log(`✅ 本地图片加载成功：${config.imgDesc}`);
-                };
-
-                img.onerror = function() {
-                    console.error(`❌ 本地图片加载失败：${config.imgDesc}`);
-                    if (loadingEl) loadingEl.style.display = 'none';
-                    // 校徽加载失败时显示文字占位
-                    if (config.imgId === 'schoolLogo') {
-                        img.style.display = 'none';
-                        const logoPlaceholder = document.createElement('span');
-                        logoPlaceholder.style.color = '#d4af37';
-                        logoPlaceholder.style.fontSize = '0.8rem';
-                        logoPlaceholder.textContent = '校徽';
-                        img.parentElement.insertBefore(logoPlaceholder, img);
+                
+                // 显示目标页面
+                const targetPage = document.querySelector(`.page[data-page="${pageNum}"]`);
+                if (targetPage) {
+                    targetPage.classList.add('active');
+                    // 滚动到页面顶部
+                    content.scrollTop = 0;
+                    // 更新页码状态
+                    updatePageStatus(pageNum);
+                    
+                    // 处理最后一页的翻页提示
+                    if (pageNum === totalPages) {
+                        scrollTip.style.display = 'none';
+                    } else {
+                        scrollTip.style.display = 'flex';
                     }
-                    if (errorEl) {
-                        errorEl.style.display = 'block';
-                        errorEl.innerHTML += "<br>提示：请确认图片为标准PNG格式，无损坏或格式篡改";
-                    }
-                };
-
-                if (img.complete) {
-                    img.onload();
-                }
-
-                if (img.src !== config.localPath) {
-                    img.src = config.localPath;
                 }
             }
-
-            // 批量处理所有本地图片
-            localImageConfig.forEach(config => {
-                handleLocalImageLoad(config);
+            
+            // 获取当前页面
+            function getCurrentPage() {
+                const activePage = document.querySelector('.page.active');
+                return parseInt(activePage.getAttribute('data-page'));
+            }
+            
+            // 下一页
+            function nextPage() {
+                const currentPage = getCurrentPage();
+                if (currentPage < totalPages) {
+                    goToPage(currentPage + 1);
+                }
+            }
+            
+            // 上一页
+            function prevPage() {
+                const currentPage = getCurrentPage();
+                if (currentPage > 1) {
+                    goToPage(currentPage - 1);
+                }
+            }
+            
+            // 点击翻页提示翻到下一页
+            scrollTip.addEventListener('click', nextPage);
+            
+            // 支持键盘箭头翻页
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowDown' || e.key === ' ') {
+                    nextPage();
+                } else if (e.key === 'ArrowUp') {
+                    prevPage();
+                }
             });
-
-            // 音乐播放优化逻辑
+            
+            // 支持滑动翻页
+            let startY;
+            content.addEventListener('touchstart', function(e) {
+                startY = e.touches[0].clientY;
+            }, false);
+            
+            content.addEventListener('touchend', function(e) {
+                if (!startY) return;
+                
+                const endY = e.changedTouches[0].clientY;
+                const diffY = endY - startY;
+                
+                // 滑动距离超过50px才触发翻页
+                if (diffY < -50) {
+                    nextPage();
+                } else if (diffY > 50) {
+                    prevPage();
+                }
+                
+                startY = null;
+            }, false);
+            
+            // 图片加载处理
+            const images = document.querySelectorAll('.event-img, .content-img');
+            images.forEach(img => {
+                const loadingIndicator = img.parentElement.querySelector('.img-loading');
+                const errorIndicator = img.parentElement.querySelector('.img-error');
+                
+                img.addEventListener('load', function() {
+                    img.classList.add('loaded');
+                    if (loadingIndicator) loadingIndicator.style.display = 'none';
+                    if (errorIndicator) errorIndicator.style.display = 'none';
+                });
+                
+                img.addEventListener('error', function() {
+                    if (loadingIndicator) loadingIndicator.style.display = 'none';
+                    if (errorIndicator) errorIndicator.style.display = 'block';
+                });
+                
+                // 手动触发加载
+                if (img.complete) {
+                    img.classList.add('loaded');
+                    if (loadingIndicator) loadingIndicator.style.display = 'none';
+                }
+            });
+            
+            // 音频播放控制 - 修复版
             const audio = document.getElementById('backgroundMusic');
             const musicControl = document.getElementById('musicControl');
             const musicIcon = document.getElementById('musicIcon');
@@ -1158,163 +1038,119 @@
             const musicProgress = document.getElementById('musicProgress');
             const musicProgressBar = document.getElementById('musicProgressBar');
             
-            // 音频状态枚举
-            const AudioStatus = {
-                LOADING: 'loading',
-                PLAYING: 'playing',
-                PAUSED: 'paused',
-                ERROR: 'error'
-            };
-            
-            // 当前音频状态
-            let currentAudioStatus = AudioStatus.PAUSED;
-
-            // 更新音频状态显示
-            function updateAudioStatus(status, message = '') {
-                currentAudioStatus = status;
+            // 显示状态消息
+            function showMusicStatus(message, duration = 2000) {
+                musicStatus.textContent = message;
+                musicStatus.style.display = 'block';
                 
-                switch(status) {
-                    case AudioStatus.LOADING:
-                        musicProgress.style.display = 'block';
-                        musicStatus.style.display = 'block';
-                        musicStatus.textContent = message || '加载中...';
-                        break;
-                    case AudioStatus.PLAYING:
-                        musicIcon.classList.remove('play');
-                        musicIcon.classList.add('pause');
-                        musicProgress.style.display = 'none';
-                        musicStatus.style.display = 'none';
-                        break;
-                    case AudioStatus.PAUSED:
-                        musicIcon.classList.remove('pause');
-                        musicIcon.classList.add('play');
-                        musicProgress.style.display = 'none';
-                        musicStatus.style.display = 'none';
-                        break;
-                    case AudioStatus.ERROR:
-                        musicIcon.classList.remove('pause');
-                        musicIcon.classList.add('play');
-                        musicProgress.style.display = 'none';
-                        musicStatus.style.display = 'block';
-                        musicStatus.textContent = message || '播放失败';
-                        break;
+                clearTimeout(window.musicStatusTimeout);
+                window.musicStatusTimeout = setTimeout(() => {
+                    musicStatus.style.display = 'none';
+                }, duration);
+            }
+            
+            // 处理音频播放/暂停
+            function toggleAudio() {
+                // 检查浏览器是否支持音频播放
+                if (typeof audio.canPlayType === 'undefined') {
+                    showMusicStatus('您的浏览器不支持音频播放', 3000);
+                    return;
+                }
+                
+                // 尝试播放音频
+                if (audio.paused) {
+                    // 显示加载状态
+                    musicProgress.style.display = 'block';
+                    showMusicStatus('正在加载音频...', 5000);
+                    
+                    // 尝试播放
+                    const playPromise = audio.play();
+                    
+                    if (playPromise !== undefined) {
+                        playPromise.then(() => {
+                            // 播放成功
+                            musicIcon.classList.remove('play');
+                            musicIcon.classList.add('pause');
+                            musicProgress.style.display = 'none';
+                            showMusicStatus('播放中');
+                        }).catch(error => {
+                            // 播放失败 - 通常是浏览器自动播放限制
+                            musicProgress.style.display = 'none';
+                            showMusicStatus('请点击播放按钮开始音乐', 3000);
+                            console.error('音频播放失败:', error);
+                        });
+                    }
+                } else {
+                    // 暂停播放
+                    audio.pause();
+                    musicIcon.classList.remove('pause');
+                    musicIcon.classList.add('play');
+                    showMusicStatus('已暂停');
                 }
             }
-
-            // 音频加载进度更新
+            
+            // 更新进度条
+            audio.addEventListener('timeupdate', function() {
+                if (audio.duration) {
+                    const progress = (audio.currentTime / audio.duration) * 100;
+                    musicProgressBar.style.width = `${progress}%`;
+                }
+            });
+            
+            // 音频加载进度
             audio.addEventListener('progress', function() {
                 if (audio.buffered.length > 0) {
-                    const loadedPercentage = (audio.buffered.end(audio.buffered.length - 1) / audio.duration) * 100;
-                    musicProgressBar.style.width = `${loadedPercentage}%`;
+                    const bufferedEnd = audio.buffered.end(audio.buffered.length - 1);
+                    const duration = audio.duration;
                     
-                    // 加载完成后自动播放（如果浏览器允许）
-                    if (loadedPercentage >= 100 && currentAudioStatus === AudioStatus.LOADING) {
-                        tryPlayAudio();
+                    if (duration > 0) {
+                        const loadProgress = (bufferedEnd / duration) * 100;
+                        musicProgressBar.style.width = `${loadProgress}%`;
                     }
                 }
             });
-
-            // 音频元数据加载完成
+            
+            // 音频加载完成
             audio.addEventListener('loadedmetadata', function() {
-                console.log('🎵 音频元数据加载完成');
-                updateAudioStatus(AudioStatus.LOADING, '加载中...');
+                musicProgressBar.style.width = '0%';
             });
-
-            // 音频加载失败
-            audio.addEventListener('error', function() {
-                console.error('❌ 音频加载失败', audio.error);
-                let errorMsg = '播放失败';
-                switch(audio.error.code) {
-                    case MediaError.MEDIA_ERR_ABORTED:
-                        errorMsg = '加载被中止';
-                        break;
-                    case MediaError.MEDIA_ERR_NETWORK:
-                        errorMsg = '网络错误';
-                        break;
-                    case MediaError.MEDIA_ERR_DECODE:
-                        errorMsg = '格式不支持';
-                        break;
-                    case MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED:
-                        errorMsg = '文件不支持';
-                        break;
-                }
-                updateAudioStatus(AudioStatus.ERROR, errorMsg);
-            });
-
+            
             // 音频播放结束（循环播放）
             audio.addEventListener('ended', function() {
-                if (audio.loop) {
-                    audio.currentTime = 0;
-                    audio.play().catch(err => {
-                        console.log('⚠️ 循环播放失败', err);
-                        updateAudioStatus(AudioStatus.PAUSED);
-                    });
-                }
+                // 循环播放由audio标签的loop属性处理
+                showMusicStatus('播放中');
             });
-
-            // 尝试播放音频
-            function tryPlayAudio() {
-                updateAudioStatus(AudioStatus.LOADING, '加载中...');
-                audio.play().then(() => {
-                    updateAudioStatus(AudioStatus.PLAYING);
-                    console.log('🎵 音乐播放成功');
-                }).catch(err => {
-                    console.log('⚠️ 播放失败', err);
-                    
-                    // 区分自动播放被阻止和其他错误
-                    if (err.name === 'NotAllowedError' || err.message.includes('autoplay') || err.message.includes('user interaction')) {
-                        updateAudioStatus(AudioStatus.PAUSED);
-                        // 显示"点击播放"提示（3秒后自动隐藏）
-                        musicStatus.style.display = 'block';
-                        musicStatus.textContent = '点击播放背景音乐';
-                        setTimeout(() => {
-                            if (currentAudioStatus === AudioStatus.PAUSED) {
-                                musicStatus.style.display = 'none';
-                            }
-                        }, 3000);
-                    } else {
-                        updateAudioStatus(AudioStatus.ERROR, '播放失败');
-                    }
-                });
-            }
-
-            // 音乐控制按钮点击事件
-            musicControl.addEventListener('click', () => {
-                if (currentAudioStatus === AudioStatus.PLAYING) {
-                    audio.pause();
-                    updateAudioStatus(AudioStatus.PAUSED);
-                    console.log('🎵 音乐暂停');
-                } else {
-                    tryPlayAudio();
+            
+            // 音频错误处理
+            audio.addEventListener('error', function() {
+                musicProgress.style.display = 'none';
+                
+                let errorMessage = '音频加载失败';
+                switch(audio.error.code) {
+                    case 1: errorMessage = '音频加载中断'; break;
+                    case 2: errorMessage = '不支持的音频格式'; break;
+                    case 3: errorMessage = '音频解码失败'; break;
+                    case 4: errorMessage = '音频加载失败'; break;
                 }
+                
+                showMusicStatus(errorMessage, 5000);
+                musicIcon.classList.remove('pause');
+                musicIcon.classList.add('play');
             });
-
-            // 页面任何位置点击都可触发播放（仅第一次）
-            let playInitiated = false;
-            document.body.addEventListener('click', function playOnClick() {
-                if (!playInitiated && currentAudioStatus === AudioStatus.PAUSED) {
-                    playInitiated = true;
-                    tryPlayAudio();
-                }
-            }, { once: true });
-
-            // 初始化音频（先加载元数据）
-            function initAudio() {
-                // 检查音频是否已加载
-                if (audio.readyState >= 1) {
-                    tryPlayAudio();
-                } else {
-                    // 触发元数据加载
+            
+            // 点击控制按钮
+            musicControl.addEventListener('click', toggleAudio);
+            
+            // 添加用户交互事件以触发音频播放（解决自动播放限制）
+            document.body.addEventListener('click', function enableAudioOnInteraction() {
+                // 只在音频未播放时执行
+                if (audio.paused) {
+                    // 尝试加载音频元数据
                     audio.load();
                 }
-            }
-
-            // 页面加载完成后初始化音频
-            initAudio();
-
-            // 初始化页面
-            updatePage();
-            startAutoPage();
+                // 移除事件监听，只需要一次交互
+                document.body.removeEventListener('click', enableAudioOnInteraction);
+            }, { once: true });
         });
     </script>
 </body>
