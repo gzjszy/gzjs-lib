@@ -507,8 +507,8 @@
         .music-icon.pause::after {
             right: 0;
         }
-        /* 音频加载提示 */
-        .music-loading {
+        /* 音频状态提示（优化样式和位置） */
+        .music-status {
             position: absolute;
             top: 55px;
             right: 15px;
@@ -519,7 +519,27 @@
             padding: 2px 6px;
             border-radius: 3px;
             border: 1px solid #8b4513;
+            white-space: nowrap;
             display: none;
+        }
+        /* 音频加载进度条（新增） */
+        .music-progress {
+            position: absolute;
+            top: 50px;
+            right: 15px;
+            z-index: 19;
+            width: 36px;
+            height: 3px;
+            background-color: rgba(44, 41, 36, 0.8);
+            border-radius: 2px;
+            overflow: hidden;
+            display: none;
+        }
+        .music-progress-bar {
+            height: 100%;
+            width: 0%;
+            background-color: #d4af37;
+            transition: width 0.3s ease;
         }
         /* 桌面端适配（大屏恢复原有比例） */
         @media (min-width: 768px) {
@@ -732,6 +752,16 @@
                     transform: translateX(-50%) translateY(0); 
                 }
             }
+            /* 桌面端音频状态提示调整 */
+            .music-status {
+                font-size: 12px;
+                padding: 3px 8px;
+                top: 60px;
+            }
+            .music-progress {
+                width: 40px;
+                top: 55px;
+            }
         }
         @keyframes pulse {
             0% { opacity: 0.6; }
@@ -749,15 +779,22 @@
 </head>
 <body>
     <div class="page-container" id="container">
-        <!-- 音乐控制相关元素 -->
-        <audio id="backgroundMusic" loop preload="auto">
+        <!-- 音乐控制相关元素（优化结构） -->
+        <audio id="backgroundMusic" loop preload="metadata">
+            <!-- 增加备用音频格式，提升兼容性 -->
             <source src="music/background.mp3" type="audio/mpeg">
+            <source src="music/background.ogg" type="audio/ogg">
             您的浏览器不支持音频播放
-        </audio>
-        <div class="music-control" id="musicControl">
-            <div class="music-icon pause" id="musicIcon"></div>
+         </audio>
+        <!-- 音频加载进度条（新增） -->
+        <div class="music-progress" id="musicProgress">
+            <div class="music-progress-bar" id="musicProgressBar"></div>
         </div>
-        <div class="music-loading" id="musicLoading">音频加载中...</div>
+        <div class="music-control" id="musicControl">
+            <div class="music-icon play" id="musicIcon"></div>
+        </div>
+        <!-- 音频状态提示（合并加载/错误提示） -->
+        <div class="music-status" id="musicStatus"></div>
         
         <div class="page-content" id="content">
             <!-- 第1页 -->
@@ -799,7 +836,10 @@
                             <div class="invite-container">
                                 <div class="salutation">尊敬的李扬波书记：</div>
                                 <div class="body">
-                                    <p>图书馆将于2025年11月12日14：00，在图书馆三楼会议室举办优读剧场第二期《烽火卷书：黔州星火》，期待您的到来！</p>
+                                    <p>为传承红色基因，弘扬革命精神，贵州建设职业技术学院图书馆特举办优读剧场第二期《烽火卷书：黔州星火》活动。本次活动以《贵阳史话》为蓝本，通过沉浸式表演再现黔州大地的革命岁月，让红色文化直抵人心。</p>
+                                    <p>我们诚挚邀请您拨冗莅临，与全校师生共同感受革命先辈的家国情怀，在历史与现实的碰撞中汲取奋进力量。</p>
+                                    <p>活动时间：2025年11月12日 14:00</p>
+                                    <p>活动地点：图书馆三楼会议室</p>
                                 </div>
                                 <div class="closing">盼您莅临，共襄盛举！</div>
                                 <div class="signature">
@@ -891,27 +931,27 @@
                                 <tbody>
                                     <tr>
                                         <td>第一场</td>
-                                        <td>2025年11月12日 14:00</td>
+                                        <td>2025年11月10日 14:00</td>
                                         <td>首演场</td>
                                     </tr>
                                     <tr>
                                         <td>第二场</td>
-                                        <td>2025年11月13日 10:30</td>
+                                        <td>2025年11月11日 10:30</td>
                                         <td>日间场</td>
                                     </tr>
                                     <tr>
                                         <td>第三场</td>
-                                        <td>2025年11月13日 14:00</td>
+                                        <td>2025年11月11日 14:00</td>
                                         <td>日间场</td>
                                     </tr>
                                     <tr>
                                         <td>第四场</td>
-                                        <td>2025年11月14日 10:30</td>
+                                        <td>2025年11月12日 10:30</td>
                                         <td>日间场</td>
                                     </tr>
                                     <tr>
                                         <td>第五场</td>
-                                        <td>2025年11月14日 14:00</td>
+                                        <td>2025年11月12日 14:00</td>
                                         <td>收官场</td>
                                     </tr>
                                 </tbody>
@@ -936,7 +976,7 @@
                                 </div>
                                 <div class="closing">顺颂时祺！</div>
                                 <div class="signature">
-                                    <div class="host">贵州建设职业技术学院图书馆</div>
+                                    <div class="host">贵州建设职业技术学院</div>
                                     <div class="date">2025年11月6日</div>
                                 </div>
                             </div>
@@ -950,7 +990,7 @@
             </div>
         </div>
         <!-- 底部状态条 -->
-        <div class="page-status" id="status">当前 1/7 页 （点击箭头/上下滑动可切换）</div>
+        <div class="page-status" id="status">当前 1/7 页 · 5秒后自动翻页（点击箭头/上下滑动可切换）</div>
         <!-- 动态翻页提示（极致缩小版） -->
         <div class="scroll-tip" id="scrollTip">
             <div class="scroll-arrow"></div>
@@ -1110,58 +1150,167 @@
                 handleLocalImageLoad(config);
             });
 
-            // 音乐自动播放处理
+            // 音乐播放优化逻辑
             const audio = document.getElementById('backgroundMusic');
             const musicControl = document.getElementById('musicControl');
             const musicIcon = document.getElementById('musicIcon');
-            const musicLoading = document.getElementById('musicLoading');
+            const musicStatus = document.getElementById('musicStatus');
+            const musicProgress = document.getElementById('musicProgress');
+            const musicProgressBar = document.getElementById('musicProgressBar');
+            
+            // 音频状态枚举
+            const AudioStatus = {
+                LOADING: 'loading',
+                PLAYING: 'playing',
+                PAUSED: 'paused',
+                ERROR: 'error'
+            };
+            
+            // 当前音频状态
+            let currentAudioStatus = AudioStatus.PAUSED;
 
-            // 尝试自动播放（兼容浏览器策略）
-            function tryAutoPlay() {
-                musicLoading.style.display = 'block';
-                audio.play().then(() => {
-                    musicLoading.style.display = 'none';
-                    musicIcon.classList.remove('play');
-                    musicIcon.classList.add('pause');
-                    console.log('🎵 音乐自动播放成功');
-                }).catch(err => {
-                    musicLoading.style.display = 'none';
-                    musicIcon.classList.remove('pause');
-                    musicIcon.classList.add('play');
-                    console.log('⚠️ 自动播放被浏览器阻止，点击播放按钮即可开启', err);
+            // 更新音频状态显示
+            function updateAudioStatus(status, message = '') {
+                currentAudioStatus = status;
+                
+                switch(status) {
+                    case AudioStatus.LOADING:
+                        musicProgress.style.display = 'block';
+                        musicStatus.style.display = 'block';
+                        musicStatus.textContent = message || '加载中...';
+                        break;
+                    case AudioStatus.PLAYING:
+                        musicIcon.classList.remove('play');
+                        musicIcon.classList.add('pause');
+                        musicProgress.style.display = 'none';
+                        musicStatus.style.display = 'none';
+                        break;
+                    case AudioStatus.PAUSED:
+                        musicIcon.classList.remove('pause');
+                        musicIcon.classList.add('play');
+                        musicProgress.style.display = 'none';
+                        musicStatus.style.display = 'none';
+                        break;
+                    case AudioStatus.ERROR:
+                        musicIcon.classList.remove('pause');
+                        musicIcon.classList.add('play');
+                        musicProgress.style.display = 'none';
+                        musicStatus.style.display = 'block';
+                        musicStatus.textContent = message || '播放失败';
+                        break;
+                }
+            }
+
+            // 音频加载进度更新
+            audio.addEventListener('progress', function() {
+                if (audio.buffered.length > 0) {
+                    const loadedPercentage = (audio.buffered.end(audio.buffered.length - 1) / audio.duration) * 100;
+                    musicProgressBar.style.width = `${loadedPercentage}%`;
                     
-                    // 点击页面任何位置也可触发播放
-                    document.body.addEventListener('click', function playOnClick() {
-                        audio.play().then(() => {
-                            musicIcon.classList.remove('play');
-                            musicIcon.classList.add('pause');
-                            console.log('🎵 点击页面后音乐播放成功');
-                        }).catch(err => {
-                            console.log('⚠️ 点击播放失败', err);
-                        });
-                        document.body.removeEventListener('click', playOnClick);
-                    }, { once: true });
+                    // 加载完成后自动播放（如果浏览器允许）
+                    if (loadedPercentage >= 100 && currentAudioStatus === AudioStatus.LOADING) {
+                        tryPlayAudio();
+                    }
+                }
+            });
+
+            // 音频元数据加载完成
+            audio.addEventListener('loadedmetadata', function() {
+                console.log('🎵 音频元数据加载完成');
+                updateAudioStatus(AudioStatus.LOADING, '加载中...');
+            });
+
+            // 音频加载失败
+            audio.addEventListener('error', function() {
+                console.error('❌ 音频加载失败', audio.error);
+                let errorMsg = '播放失败';
+                switch(audio.error.code) {
+                    case MediaError.MEDIA_ERR_ABORTED:
+                        errorMsg = '加载被中止';
+                        break;
+                    case MediaError.MEDIA_ERR_NETWORK:
+                        errorMsg = '网络错误';
+                        break;
+                    case MediaError.MEDIA_ERR_DECODE:
+                        errorMsg = '格式不支持';
+                        break;
+                    case MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED:
+                        errorMsg = '文件不支持';
+                        break;
+                }
+                updateAudioStatus(AudioStatus.ERROR, errorMsg);
+            });
+
+            // 音频播放结束（循环播放）
+            audio.addEventListener('ended', function() {
+                if (audio.loop) {
+                    audio.currentTime = 0;
+                    audio.play().catch(err => {
+                        console.log('⚠️ 循环播放失败', err);
+                        updateAudioStatus(AudioStatus.PAUSED);
+                    });
+                }
+            });
+
+            // 尝试播放音频
+            function tryPlayAudio() {
+                updateAudioStatus(AudioStatus.LOADING, '加载中...');
+                audio.play().then(() => {
+                    updateAudioStatus(AudioStatus.PLAYING);
+                    console.log('🎵 音乐播放成功');
+                }).catch(err => {
+                    console.log('⚠️ 播放失败', err);
+                    
+                    // 区分自动播放被阻止和其他错误
+                    if (err.name === 'NotAllowedError' || err.message.includes('autoplay') || err.message.includes('user interaction')) {
+                        updateAudioStatus(AudioStatus.PAUSED);
+                        // 显示"点击播放"提示（3秒后自动隐藏）
+                        musicStatus.style.display = 'block';
+                        musicStatus.textContent = '点击播放背景音乐';
+                        setTimeout(() => {
+                            if (currentAudioStatus === AudioStatus.PAUSED) {
+                                musicStatus.style.display = 'none';
+                            }
+                        }, 3000);
+                    } else {
+                        updateAudioStatus(AudioStatus.ERROR, '播放失败');
+                    }
                 });
             }
 
             // 音乐控制按钮点击事件
             musicControl.addEventListener('click', () => {
-                if (audio.paused) {
-                    audio.play().then(() => {
-                        musicIcon.classList.remove('play');
-                        musicIcon.classList.add('pause');
-                    }).catch(err => {
-                        console.log('⚠️ 播放失败', err);
-                    });
-                } else {
+                if (currentAudioStatus === AudioStatus.PLAYING) {
                     audio.pause();
-                    musicIcon.classList.remove('pause');
-                    musicIcon.classList.add('play');
+                    updateAudioStatus(AudioStatus.PAUSED);
+                    console.log('🎵 音乐暂停');
+                } else {
+                    tryPlayAudio();
                 }
             });
 
-            // 页面加载完成后尝试自动播放
-            tryAutoPlay();
+            // 页面任何位置点击都可触发播放（仅第一次）
+            let playInitiated = false;
+            document.body.addEventListener('click', function playOnClick() {
+                if (!playInitiated && currentAudioStatus === AudioStatus.PAUSED) {
+                    playInitiated = true;
+                    tryPlayAudio();
+                }
+            }, { once: true });
+
+            // 初始化音频（先加载元数据）
+            function initAudio() {
+                // 检查音频是否已加载
+                if (audio.readyState >= 1) {
+                    tryPlayAudio();
+                } else {
+                    // 触发元数据加载
+                    audio.load();
+                }
+            }
+
+            // 页面加载完成后初始化音频
+            initAudio();
 
             // 初始化页面
             updatePage();
